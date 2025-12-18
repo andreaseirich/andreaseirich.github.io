@@ -21,7 +21,13 @@ Das Kontaktformular verwendet **Formspree**, einen kostenlosen Service für stat
 
 ### Schritt 4: E-Mail-Benachrichtigungen konfigurieren
 1. In deinem Formspree-Dashboard kannst du die E-Mail-Adresse einstellen, an die die Formular-Einreichungen gesendet werden sollen
-2. Optional: Aktiviere Auto-Responder, um automatische Bestätigungs-E-Mails an Absender zu senden
+2. **Wichtig**: Formspree unterstützt **jede E-Mail-Adresse**, einschließlich:
+   - iCloud-E-Mails (z.B. eirichandreas2004@icloud.com)
+   - Gmail-E-Mails (z.B. eirichandi15@gmail.com)
+   - Outlook/Office365-E-Mails (z.B. andreas.eirich@iu-study.org)
+   - Jede andere E-Mail-Adresse
+3. Optional: Aktiviere Auto-Responder, um automatische Bestätigungs-E-Mails an Absender zu senden
+4. **E-Mail-Verifizierung**: Formspree sendet eine Bestätigungs-E-Mail an die angegebene Adresse - klicke auf den Link, um die Adresse zu verifizieren
 
 ## Funktionalität
 
@@ -48,6 +54,19 @@ Falls du Formspree nicht verwenden möchtest, gibt es folgende Alternativen:
 - Node.js/Express, Python/Flask, etc.
 - Erfordert eigenen Server
 
+## E-Mail-Adressen
+
+Formspree unterstützt **alle E-Mail-Anbieter**:
+- ✅ iCloud (z.B. eirichandreas2004@icloud.com)
+- ✅ Gmail (z.B. eirichandi15@gmail.com)
+- ✅ Outlook/Office365 (z.B. andreas.eirich@iu-study.org)
+- ✅ Yahoo, ProtonMail, und alle anderen E-Mail-Anbieter
+
+**Wichtig**: 
+- Die E-Mail-Adresse muss verifiziert werden (Formspree sendet eine Bestätigungs-E-Mail)
+- Prüfe auch deinen Spam-Ordner, falls die E-Mail nicht ankommt
+- Du kannst mehrere E-Mail-Adressen hinzufügen, um Kopien zu erhalten
+
 ## Testen
 
 Nach der Einrichtung:
@@ -55,6 +74,7 @@ Nach der Einrichtung:
 2. Sende eine Testnachricht
 3. Prüfe dein E-Mail-Postfach (und Spam-Ordner)
 4. Prüfe das Formspree-Dashboard für Einreichungen
+5. **Verifiziere deine E-Mail-Adresse** im Formspree-Dashboard, falls noch nicht geschehen
 
 ## Kosten
 
