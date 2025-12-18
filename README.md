@@ -10,13 +10,15 @@ Ein modernes, responsives Portfolio-Website mit Dark Mode Design, das meine Proj
 - **Glasmorphismus**: Moderne UI-Elemente mit Backdrop-Blur-Effekten
 - **Gradient-Design**: Ansprechende Farbverläufe und visuelle Effekte
 - **Sticky Navigation**: Fixierte Navigationsleiste für einfache Navigation
-- **Kontaktformular**: Integriertes Kontaktformular für direkte Kommunikation
+- **Kontaktformular**: Funktionsfähiges Kontaktformular mit direktem E-Mail-Versand (Web3Forms)
 - **Projekt-Showcase**: Übersichtliche Darstellung von Projekten mit Technologie-Stack
 
 ## 🚀 Technologien
 
 - **HTML5**: Semantische Strukturierung
 - **CSS3**: Modernes Styling mit Flexbox, Grid, Animations und Custom Properties
+- **JavaScript**: Interaktive Formular-Funktionalität
+- **Web3Forms**: E-Mail-Versand-Service (kostenlos, keine Registrierung)
 - **Google Fonts**: Poppins Schriftart für moderne Typografie
 - **Responsive Design**: Mobile-First Ansatz
 
@@ -59,7 +61,7 @@ Die Website besteht aus folgenden Hauptbereichen:
 - **Navigation**: Sticky Navigation mit Sprungmarken zu den Bereichen
 - **Über mich**: Persönliche Vorstellung und Fähigkeiten
 - **Projekte**: Übersicht der entwickelten Projekte mit Details
-- **Kontakt**: Kontaktformular für direkte Kommunikation
+- **Kontakt**: Funktionsfähiges Kontaktformular mit direktem E-Mail-Versand
 - **Footer**: Copyright-Informationen
 
 ## 🎯 Design-Highlights
@@ -104,6 +106,17 @@ Die Hauptfarben können in `style.css` angepasst werden:
 - Gradient-Farben: `#6a11cb` und `#2575fc`
 - Hintergrund: `#0a0a0a`
 - Text: `#e0e0e0`
+
+### Kontaktformular konfigurieren
+
+Das Kontaktformular verwendet Web3Forms für direkten E-Mail-Versand. Die Konfiguration befindet sich in `index.html`:
+
+```javascript
+const WEB3FORMS_ACCESS_KEY = 'dein-access-key';
+const YOUR_EMAIL = 'deine-email@example.com';
+```
+
+**Hinweis**: Das Formular ist bereits konfiguriert und funktionsfähig. E-Mails werden direkt an die konfigurierte Adresse gesendet.
 
 ## 🌐 Browser-Unterstützung
 

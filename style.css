@@ -405,6 +405,11 @@ form button:disabled {
   transform: none;
 }
 
+form button:disabled:hover {
+  transform: none;
+  box-shadow: 0 4px 15px rgba(106, 17, 203, 0.3);
+}
+
 .form-status {
   margin-top: 1rem;
   padding: 1rem;
@@ -426,6 +431,17 @@ form button:disabled {
   background: rgba(244, 67, 54, 0.2);
   border: 1px solid rgba(244, 67, 54, 0.5);
   color: #ef5350;
+}
+
+/* Formular-Validierung */
+form input:invalid:not(:placeholder-shown),
+form textarea:invalid:not(:placeholder-shown) {
+  border-color: rgba(244, 67, 54, 0.5);
+}
+
+form input:valid:not(:placeholder-shown),
+form textarea:valid:not(:placeholder-shown) {
+  border-color: rgba(76, 175, 80, 0.5);
 }
 
 /* Footer */
