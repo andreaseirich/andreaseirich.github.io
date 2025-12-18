@@ -399,6 +399,35 @@ form button:active {
   transform: translateY(0);
 }
 
+form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.form-status {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+  display: none;
+}
+
+.form-status.success {
+  display: block;
+  background: rgba(37, 117, 252, 0.2);
+  border: 1px solid rgba(37, 117, 252, 0.5);
+  color: #4fc3f7;
+}
+
+.form-status.error {
+  display: block;
+  background: rgba(244, 67, 54, 0.2);
+  border: 1px solid rgba(244, 67, 54, 0.5);
+  color: #ef5350;
+}
+
 /* Footer */
 footer {
   text-align: center;
