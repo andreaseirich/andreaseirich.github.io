@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,33 +11,33 @@
   <header>
     <div class="container">
       <h1>Andreas Eirich</h1>
-      <p>Innovative Lösungen für moderne Anforderungen</p>
+      <p>Innovative Solutions for Modern Requirements</p>
     </div>
   </header>
 
   <nav class="navbar">
     <ul>
-      <li><a href="#about">Über mich</a></li>
-      <li><a href="#projects">Projekte</a></li>
-      <li><a href="#contact">Kontakt</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
   <section id="about" class="section">
     <div class="container">
-      <h2>Über mich</h2>
-      <p>Ich bin ein leidenschaftlicher Softwareentwickler & Webentwickler, der innovative Lösungen schafft, die Funktionalität und modernes Design kombinieren. Mein Schwerpunkt liegt auf der Entwicklung skalierbarer Webanwendungen und der Umsetzung von kreativen Konzepten.</p>
+      <h2>About Me</h2>
+      <p>I am a passionate software developer & web developer who creates innovative solutions that combine functionality and modern design. My focus is on developing scalable web applications and implementing creative concepts.</p>
     </div>
   </section>
 
   <section id="projects" class="section">
     <div class="container">
-      <h2>Projekte</h2>
+      <h2>Projects</h2>
       <div class="projects">
         <!-- Honey Treasures -->
       <a href="honey-treasures.html" class="project project-link">
         <h3>🍯 Honey Treasures</h3>
-        <p>Modernes, sicheres und mobiles E-Commerce-System für kleine Imkereien. Vollwertiges Webanwendungssystem für die Familienimkerei mit Produktkatalog, Warenkorb, Bestellverwaltung und umfassendem Admin-Backend. <strong>Live verfügbar unter honey-treasures.com</strong></p>
+        <p>Modern, secure, and mobile E-Commerce system for small apiaries. Full-featured web application system for family beekeeping businesses with product catalog, shopping cart, order management, and comprehensive admin backend. <strong>Live available at honey-treasures.com</strong></p>
         <ul>
           <li>HTML: 39.7%</li>
           <li>Python: 35.4%</li>
@@ -49,11 +49,11 @@
       <!-- TutorFlow -->
       <a href="tutorflow.html" class="project project-link">
         <h3>TutorFlow</h3>
-        <p>TutorFlow ist ein strukturiertes, ethisches und KI-gestütztes Nachhilfeverwaltungssystem, das mit Django entwickelt wurde. Es hilft Privatlehrern, Schüler, Verträge, Zeitpläne, Fahrzeiten und Einnahmen zu organisieren, mit optional KI-gestützter Unterrichtsplanung.</p>
+        <p>TutorFlow is a structured, ethical, and AI-enhanced tutoring management system built with Django. It helps private tutors organize students, contracts, schedules, travel times, and income, with optional AI-powered lesson planning.</p>
         <ul>
           <li>Python: 82.2%</li>
           <li>HTML: 16.9%</li>
-          <li>Sonstiges: 0.9%</li>
+          <li>Other: 0.9%</li>
         </ul>
       </a>
     </div>
@@ -61,20 +61,20 @@
 
   <section id="contact" class="section">
     <div class="container">
-      <h2>Kontakt</h2>
+      <h2>Contact</h2>
       <form id="contact-form">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" placeholder="Dein Name" required>
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
         
-        <label for="email">E-Mail:</label>
-        <input type="email" id="email" name="email" placeholder="Deine E-Mail" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
         
-        <label for="message">Nachricht:</label>
-        <textarea id="message" name="message" placeholder="Deine Nachricht" rows="4" required></textarea>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
         
         <div id="form-status" class="form-status"></div>
         
-        <button type="submit" id="submit-btn">Senden</button>
+        <button type="submit" id="submit-btn">Send</button>
       </form>
     </div>
   </section>
@@ -86,40 +86,40 @@
   </footer>
 
   <script>
-    // Kontaktformular-Handler - Direktes Senden über Web3Forms
+    // Contact Form Handler - Direct sending via Web3Forms
     const form = document.getElementById('contact-form');
     const status = document.getElementById('form-status');
     const submitBtn = document.getElementById('submit-btn');
     
-    // Web3Forms Konfiguration
+    // Web3Forms Configuration
     const WEB3FORMS_ACCESS_KEY = '34a014f3-a4d1-430a-880d-a029d8cd97b9';
     const YOUR_EMAIL = 'eirichandreas2004@icloud.com';
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       
-      // Validierung
+      // Validation
       const name = form.querySelector('#name').value.trim();
       const email = form.querySelector('#email').value.trim();
       const message = form.querySelector('#message').value.trim();
       
       if (!name || !email || !message) {
-        status.textContent = 'Bitte fülle alle Felder aus.';
+        status.textContent = 'Please fill in all fields.';
         status.className = 'form-status error';
         return;
       }
       
-      // E-Mail-Validierung
+      // Email validation
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email)) {
-        status.textContent = 'Bitte gib eine gültige E-Mail-Adresse ein.';
+        status.textContent = 'Please enter a valid email address.';
         status.className = 'form-status error';
         return;
       }
       
-      // Button deaktivieren und Status anzeigen
+      // Disable button and show status
       submitBtn.disabled = true;
-      submitBtn.textContent = 'Wird gesendet...';
+      submitBtn.textContent = 'Sending...';
       status.textContent = '';
       status.className = 'form-status';
 
@@ -131,7 +131,7 @@
           },
           body: JSON.stringify({
             access_key: WEB3FORMS_ACCESS_KEY,
-            subject: `Kontaktanfrage von ${name}`,
+            subject: `Contact Request from ${name}`,
             from_name: name,
             from_email: email,
             message: message,
@@ -142,25 +142,25 @@
         const result = await response.json();
         
         if (result.success) {
-          status.textContent = '✅ Nachricht erfolgreich gesendet! Ich melde mich bald bei dir.';
+          status.textContent = '✅ Message sent successfully! I will get back to you soon.';
           status.className = 'form-status success';
           form.reset();
           
-          // Button kurz grün machen
+          // Make button briefly green
           submitBtn.style.background = 'linear-gradient(135deg, #4caf50, #45a049)';
           setTimeout(() => {
             submitBtn.style.background = '';
           }, 2000);
         } else {
-          throw new Error(result.message || 'Fehler beim Senden');
+          throw new Error(result.message || 'Error sending message');
         }
       } catch (error) {
-        console.error('E-Mail-Fehler:', error);
-        status.textContent = '❌ Es gab einen Fehler beim Senden. Bitte versuche es später erneut.';
+        console.error('Email error:', error);
+        status.textContent = '❌ There was an error sending the message. Please try again later.';
         status.className = 'form-status error';
       } finally {
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Senden';
+        submitBtn.textContent = 'Send';
       }
     });
   </script>
