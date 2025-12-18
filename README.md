@@ -1,146 +1,151 @@
 # Portfolio - Andreas Eirich
 
-Ein modernes, responsives Portfolio-Website mit Dark Mode Design, das meine Projekte und Fähigkeiten präsentiert.
+A modern, responsive portfolio website with dark mode design that presents my projects and skills.
 
 ## 🎨 Features
 
-- **Dark Mode Design**: Modernes, augenschonendes Dark Mode Interface
-- **Responsive Design**: Optimiert für alle Geräte (Desktop, Tablet, Mobile)
-- **Smooth Animations**: Flüssige Übergänge und Hover-Effekte
-- **Glasmorphismus**: Moderne UI-Elemente mit Backdrop-Blur-Effekten
-- **Gradient-Design**: Ansprechende Farbverläufe und visuelle Effekte
-- **Sticky Navigation**: Fixierte Navigationsleiste für einfache Navigation
-- **Kontaktformular**: Funktionsfähiges Kontaktformular mit direktem E-Mail-Versand (Web3Forms)
-- **Projekt-Showcase**: Übersichtliche Darstellung von Projekten mit Technologie-Stack
+- **Dark Mode Design**: Modern, eye-friendly dark mode interface
+- **Responsive Design**: Optimized for all devices (Desktop, Tablet, Mobile)
+- **Smooth Animations**: Fluid transitions and hover effects
+- **Glassmorphism**: Modern UI elements with backdrop blur effects
+- **Gradient Design**: Appealing color gradients and visual effects
+- **Sticky Navigation**: Fixed navigation bar for easy navigation
+- **Contact Form**: Functional contact form with direct email sending (Web3Forms)
+- **Project Showcase**: Clear presentation of projects with technology stack
 
-## 🚀 Technologien
+## 🚀 Technologies
 
-- **HTML5**: Semantische Strukturierung
-- **CSS3**: Modernes Styling mit Flexbox, Grid, Animations und Custom Properties
-- **JavaScript**: Interaktive Formular-Funktionalität
-- **Web3Forms**: E-Mail-Versand-Service (kostenlos, keine Registrierung)
-- **Google Fonts**: Poppins Schriftart für moderne Typografie
-- **Responsive Design**: Mobile-First Ansatz
+- **HTML5**: Semantic structuring
+- **CSS3**: Modern styling with Flexbox, Grid, Animations and Custom Properties
+- **JavaScript**: Interactive form functionality
+- **Web3Forms**: Email sending service (free, no registration required)
+- **Google Fonts**: Poppins font for modern typography
+- **Responsive Design**: Mobile-First approach
 
-## 📁 Projektstruktur
+## 📁 Project Structure
 
 ```
 portfolio/
-├── index.html          # Haupt-HTML-Datei
-├── style.css           # Stylesheet mit Dark Mode Design
-└── README.md           # Projekt-Dokumentation
+├── index.html          # Main HTML file
+├── style.css           # Stylesheet with dark mode design
+├── tutorflow.html      # TutorFlow project overview page
+├── honey-treasures.html # Honey Treasures project overview page
+├── 404.html            # 404 error page
+├── _config.yml         # Jekyll configuration (optional)
+└── README.md           # Project documentation
 ```
 
 ## 🛠️ Installation & Setup
 
-1. **Repository klonen oder herunterladen**
+1. **Clone or download repository**
    ```bash
    git clone https://github.com/andreaseirich/andreaseirich.github.io.git
    cd andreaseirich.github.io
    ```
 
-2. **Lokale Entwicklung**
-   - Öffne die `index.html` Datei direkt im Browser, oder
-   - Nutze einen lokalen Entwicklungsserver:
+2. **Local Development**
+   - Open the `index.html` file directly in your browser, or
+   - Use a local development server:
      ```bash
-     # Mit Python
+     # With Python
      python -m http.server 8000
      
-     # Mit Node.js (http-server)
+     # With Node.js (http-server)
      npx http-server
      ```
 
-3. **Im Browser öffnen**
-   - Navigiere zu `http://localhost:8000` (oder dem entsprechenden Port)
+3. **Open in browser**
+   - Navigate to `http://localhost:8000` (or the corresponding port)
 
-## 📱 Verwendung
+## 📱 Usage
 
-Die Website besteht aus folgenden Hauptbereichen:
+The website consists of the following main sections:
 
-- **Header**: Hero-Section mit Name und Beschreibung
-- **Navigation**: Sticky Navigation mit Sprungmarken zu den Bereichen
-- **Über mich**: Persönliche Vorstellung und Fähigkeiten
-- **Projekte**: Übersicht der entwickelten Projekte mit Details
-- **Kontakt**: Funktionsfähiges Kontaktformular mit direktem E-Mail-Versand
-- **Footer**: Copyright-Informationen
+- **Header**: Hero section with name and description
+- **Navigation**: Sticky navigation with jump links to sections
+- **About Me**: Personal introduction and skills
+- **Projects**: Overview of developed projects with details
+- **Contact**: Functional contact form for direct communication
+- **Footer**: Copyright information and social media links
 
-## 🎯 Design-Highlights
+## 🎯 Design Highlights
 
-### Farbpalette
-- **Hintergrund**: Dunkles Schwarz (#0a0a0a) mit subtilen Gradient-Overlays
-- **Akzente**: Lila-Blau Gradient (#6a11cb → #2575fc)
-- **Text**: Helles Grau (#e0e0e0) für optimale Lesbarkeit
+### Color Palette
+- **Background**: Dark black (#0a0a0a) with subtle gradient overlays
+- **Accents**: Purple-blue gradient (#6a11cb → #2575fc)
+- **Text**: Light gray (#e0e0e0) for optimal readability
 
-### Animationen
-- Fade-in Animationen beim Laden
-- Smooth Scroll-Verhalten
-- Hover-Effekte auf interaktiven Elementen
-- Gradient-Animationen im Header
+### Animations
+- Fade-in animations on load
+- Smooth scroll behavior
+- Hover effects on interactive elements
+- Gradient animations in header
 
 ### Responsive Breakpoints
-- Desktop: > 768px (volle Features)
-- Tablet: 768px (angepasstes Layout)
-- Mobile: < 768px (optimiert für Touch)
+- Desktop: > 768px (full features)
+- Tablet: 768px (adjusted layout)
+- Mobile: < 768px (optimized for touch)
 
-## 📝 Anpassungen
+## 📝 Customization
 
-### Eigene Projekte hinzufügen
+### Adding Your Own Projects
 
-Bearbeite die `index.html` Datei und füge neue Projekt-Karten im `<section id="projects">` Bereich hinzu:
+Edit the `index.html` file and add new project cards in the `<section id="projects">` section:
 
 ```html
-<div class="project">
-  <h3>Projektname</h3>
-  <p>Projektbeschreibung</p>
+<a href="project-page.html" class="project project-link">
+  <h3>Project Name</h3>
+  <p>Project description</p>
   <ul>
-    <li>Technologie 1: X%</li>
-    <li>Technologie 2: Y%</li>
+    <li>Technology 1: X%</li>
+    <li>Technology 2: Y%</li>
   </ul>
-  <a href="https://github.com/username/project" target="_blank">Repository auf GitHub</a>
-</div>
+</a>
 ```
 
-### Farben anpassen
+### Adjusting Colors
 
-Die Hauptfarben können in `style.css` angepasst werden:
-- Gradient-Farben: `#6a11cb` und `#2575fc`
-- Hintergrund: `#0a0a0a`
+The main colors can be adjusted in `style.css`:
+- Gradient colors: `#6a11cb` and `#2575fc`
+- Background: `#0a0a0a`
 - Text: `#e0e0e0`
 
-### Kontaktformular konfigurieren
+### Configuring Contact Form
 
-Das Kontaktformular verwendet Web3Forms für direkten E-Mail-Versand. Die Konfiguration befindet sich in `index.html`:
+The contact form uses Web3Forms for direct email sending. The configuration is located in `index.html`:
 
 ```javascript
-const WEB3FORMS_ACCESS_KEY = 'dein-access-key';
-const YOUR_EMAIL = 'deine-email@example.com';
+const WEB3FORMS_ACCESS_KEY = 'your-access-key';
+const YOUR_EMAIL = 'your-email@example.com';
 ```
 
-**Hinweis**: Das Formular ist bereits konfiguriert und funktionsfähig. E-Mails werden direkt an die konfigurierte Adresse gesendet.
+**Note**: The form is already configured and functional. Emails are sent directly to the configured address.
 
-## 🌐 Browser-Unterstützung
+## 🌐 Browser Support
 
-- ✅ Chrome (neueste Version)
-- ✅ Firefox (neueste Version)
-- ✅ Safari (neueste Version)
-- ✅ Edge (neueste Version)
+- ✅ Chrome (latest version)
+- ✅ Firefox (latest version)
+- ✅ Safari (latest version)
+- ✅ Edge (latest version)
 
-## 📄 Lizenz
+## 📄 License
 
-Dieses Projekt ist persönliches Portfolio-Material. Alle Rechte vorbehalten.
+This project is personal portfolio material. All rights reserved.
 
-## 👤 Autor
+## 👤 Author
 
 **Andreas Eirich**
 
 - GitHub: [@andreaseirich](https://github.com/andreaseirich)
-- Portfolio: [Portfolio-Website](https://andreaseirich.github.io)
+- LinkedIn: [andreas-eirich](https://www.linkedin.com/in/andreas-eirich)
+- Portfolio: [Portfolio Website](https://andreaseirich.github.io)
 
-## 🙏 Danksagungen
+## 🙏 Acknowledgments
 
-- [Google Fonts](https://fonts.google.com/) für die Poppins Schriftart
-- Inspiration von modernen Dark Mode Designs
+- [Google Fonts](https://fonts.google.com/) for the Poppins font
+- [Web3Forms](https://web3forms.com/) for the contact form service
+- Inspiration from modern dark mode designs
 
 ---
 
-**Hinweis**: Dieses Portfolio wird kontinuierlich aktualisiert und verbessert. Feedback und Vorschläge sind willkommen!
+**Note**: This portfolio is continuously updated and improved. Feedback and suggestions are welcome!
