@@ -201,6 +201,29 @@ header p {
   cursor: pointer;
 }
 
+.project.project-link * {
+  pointer-events: none;
+}
+
+.project-github-link,
+.project-github-link * {
+  pointer-events: auto;
+}
+
+/* Verhindere, dass Links innerhalb der Projektkarte die Projektkarte-Styles erben */
+.project.project-link a {
+  text-decoration: none;
+  color: inherit;
+  display: inline;
+  font-weight: inherit;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  transition: none;
+}
+
 .project::before {
   content: '';
   position: absolute;
@@ -261,7 +284,9 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: none;
 }
 
-.project a {
+/* Links innerhalb der Projektkarte (nicht die Karte selbst) */
+.project:not(.project-link) a,
+.project.project-link > a:not(.project-link) {
   display: inline-block;
   text-decoration: none;
   color: #fff;
@@ -274,7 +299,8 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 4px 15px rgba(106, 17, 203, 0.3);
 }
 
-.project a:hover {
+.project:not(.project-link) a:hover,
+.project.project-link > a:not(.project-link):hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(106, 17, 203, 0.5);
 }
