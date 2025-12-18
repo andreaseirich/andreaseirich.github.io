@@ -1,0 +1,27 @@
+# Portfolio Konfiguration
+title: "Andreas Eirich"
+description: "Innovative Lösungen für moderne Anforderungen"
+subtitle: "Softwareentwickler & Webentwickler"
+
+# Kontakt
+email: "kontakt@andreaseirich.de"
+
+# Social Media (optional)
+github: "andreaseirich"
+linkedin: ""
+twitter: ""
+
+# Website
+url: "https://andreaseirich.github.io"
+baseurl: ""
+
+# Jekyll Konfiguration
+# theme: minima  # Deaktiviert, da wir eigenes Design verwenden
+plugins: []
+
+# Exclude
+exclude:
+  - README.md
+  - FORMULAR_SETUP.md
+  - .git
+  - node_modules
