@@ -65,19 +65,6 @@
   <section id="contact" class="section">
     <div class="container">
       <h2>Kontakt</h2>
-      <!-- 
-        HINWEIS: Um das Formular zu aktivieren, musst du:
-        
-        OPTION 1 - EmailJS (empfohlen, kostenlos):
-        1. Gehe zu https://www.emailjs.com/ und erstelle einen kostenlosen Account
-        2. Erstelle einen Email Service (Gmail, Outlook, etc.)
-        3. Erstelle eine Email Template
-        4. Ersetze "YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID" und "YOUR_PUBLIC_KEY" unten
-        
-        OPTION 2 - Formspree:
-        1. Gehe zu https://formspree.io/ und erstelle einen Account
-        2. Ersetze die action-URL mit deiner Formspree-Form-ID
-      -->
       <form id="contact-form">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" placeholder="Dein Name" required>
@@ -101,74 +88,47 @@
     </div>
   </footer>
 
-  <!-- EmailJS SDK -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  
   <script>
-    // EmailJS Konfiguration - HIER DEINE WERTE EINTRAGEN
-    const EMAILJS_CONFIG = {
-      serviceId: 'YOUR_SERVICE_ID',      // Deine EmailJS Service ID
-      templateId: 'YOUR_TEMPLATE_ID',   // Deine EmailJS Template ID
-      publicKey: 'YOUR_PUBLIC_KEY'      // Deine EmailJS Public Key
-    };
-
-    // EmailJS initialisieren
-    (function() {
-      emailjs.init(EMAILJS_CONFIG.publicKey);
-    })();
-
-    // Kontaktformular-Handler
+    // Kontaktformular-Handler - Einfache mailto: Lösung
     const form = document.getElementById('contact-form');
     const status = document.getElementById('form-status');
     const submitBtn = document.getElementById('submit-btn');
+    
+    // Deine E-Mail-Adresse - Ändere diese zu deiner gewünschten Adresse
+    const YOUR_EMAIL = 'eirichandreas2004@icloud.com'; // Oder: eirichandi15@gmail.com oder andreas.eirich@iu-study.org
 
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
       
-      // Prüfe ob EmailJS konfiguriert ist
-      if (EMAILJS_CONFIG.serviceId === 'YOUR_SERVICE_ID') {
-        status.textContent = 'Bitte konfiguriere EmailJS in index.html (Zeile ~98-102)';
-        status.className = 'form-status error';
-        return;
-      }
-      
-      // Button deaktivieren und Status anzeigen
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Wird gesendet...';
-      status.textContent = '';
-      status.className = 'form-status';
-
       // Formulardaten sammeln
-      const templateParams = {
-        from_name: form.querySelector('#name').value,
-        from_email: form.querySelector('#email').value,
-        message: form.querySelector('#message').value,
-        to_email: 'eirichandreas2004@icloud.com' // Deine E-Mail-Adresse
-      };
+      const name = form.querySelector('#name').value;
+      const email = form.querySelector('#email').value;
+      const message = form.querySelector('#message').value;
       
-      try {
-        const response = await emailjs.send(
-          EMAILJS_CONFIG.serviceId,
-          EMAILJS_CONFIG.templateId,
-          templateParams
-        );
-
-        if (response.status === 200) {
-          status.textContent = 'Nachricht erfolgreich gesendet! Ich melde mich bald bei dir.';
-          status.className = 'form-status success';
-          form.reset();
-        } else {
-          status.textContent = 'Es gab einen Fehler beim Senden. Bitte versuche es später erneut.';
-          status.className = 'form-status error';
-        }
-      } catch (error) {
-        console.error('EmailJS Fehler:', error);
-        status.textContent = 'Es gab einen Fehler beim Senden. Bitte versuche es später erneut.';
-        status.className = 'form-status error';
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Senden';
-      }
+      // E-Mail-Formatierung
+      const subject = encodeURIComponent(`Kontaktanfrage von ${name}`);
+      const body = encodeURIComponent(
+        `Name: ${name}\n` +
+        `E-Mail: ${email}\n\n` +
+        `Nachricht:\n${message}`
+      );
+      
+      // mailto: Link erstellen
+      const mailtoLink = `mailto:${YOUR_EMAIL}?subject=${subject}&body=${body}`;
+      
+      // Status anzeigen
+      status.textContent = 'Öffne dein E-Mail-Programm...';
+      status.className = 'form-status';
+      
+      // E-Mail-Programm öffnen
+      window.location.href = mailtoLink;
+      
+      // Erfolgsmeldung nach kurzer Verzögerung
+      setTimeout(() => {
+        status.textContent = 'E-Mail-Programm geöffnet! Bitte sende die Nachricht ab.';
+        status.className = 'form-status success';
+        form.reset();
+      }, 500);
     });
   </script>
 </body>
