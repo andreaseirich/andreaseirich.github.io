@@ -19,6 +19,7 @@
     <ul>
       <li><a href="index.html">← Back to Portfolio</a></li>
       <li><a href="#overview">Overview</a></li>
+      <li><a href="#why">Why TutorFlow?</a></li>
       <li><a href="#features">Features</a></li>
       <li><a href="#tech">Technology</a></li>
       <li><a href="#links">Links</a></li>
@@ -44,14 +45,59 @@
           </div>
           <div class="info-card">
             <h4>Target Audience</h4>
-            <p>Private Tutors</p>
-            <p class="subtext">With multiple students and complex contract terms</p>
+            <p>Individual Tutors</p>
+            <p class="subtext">Small educational providers with multiple students</p>
           </div>
           <div class="info-card">
             <h4>Impact</h4>
             <p>Time Savings</p>
             <p class="subtext">Reduces administrative work by 2-3 hours per week</p>
           </div>
+        </div>
+
+        <div class="status-block">
+          <h3>Development Status</h3>
+          <div class="status-content">
+            <p><strong>Current Phase:</strong> Active development during CodeCraze Hackathon</p>
+            <p><strong>Core Features:</strong> Implemented and functional</p>
+            <p><strong>Planned Features:</strong></p>
+            <ul>
+              <li>Enhanced AI lesson planning with more customization options</li>
+              <li>Mobile app for on-the-go lesson management</li>
+              <li>Advanced reporting and analytics</li>
+              <li>Integration with calendar applications</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why" class="section">
+    <div class="container">
+      <h2>Why TutorFlow?</h2>
+      <div class="why-content">
+        <div class="why-section">
+          <h3>Typical Problems Without a Tool</h3>
+          <ul>
+            <li><strong>Double Bookings:</strong> Manual calendar management leads to scheduling conflicts and overlapping appointments</li>
+            <li><strong>Contract Confusion:</strong> Difficulty tracking lesson quotas, contract terms, and billing periods across multiple students</li>
+            <li><strong>Time Loss:</strong> 2-3 hours per week spent on administrative tasks (scheduling, invoicing, tracking)</li>
+            <li><strong>Financial Uncertainty:</strong> Unclear overview of planned vs. actual income, making financial planning difficult</li>
+            <li><strong>Scattered Tools:</strong> Using multiple separate tools (calendar, spreadsheet, email) increases complexity and error risk</li>
+          </ul>
+        </div>
+
+        <div class="why-section">
+          <h3>Concrete Benefits with TutorFlow</h3>
+          <ul>
+            <li><strong>Automatic Conflict Detection:</strong> Real-time validation prevents double bookings, including travel time calculations</li>
+            <li><strong>Contract-Based Quotas:</strong> System automatically tracks lesson quotas per contract and warns before violations</li>
+            <li><strong>Time Savings:</strong> Automated invoice generation, status tracking, and conflict detection reduce administrative overhead</li>
+            <li><strong>Financial Clarity:</strong> Clear overview of planned vs. actual income with monthly/yearly comparisons</li>
+            <li><strong>Unified Workflow:</strong> All management tasks (scheduling, contracts, billing, planning) in one integrated system</li>
+            <li><strong>AI-Assisted Planning:</strong> Premium feature generates structured lesson plans, saving preparation time</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -162,6 +208,30 @@
         </div>
       </div>
 
+      <div class="domain-logic-section">
+        <h3>Domain Logic</h3>
+        <div class="domain-content">
+          <div class="domain-item">
+            <h4>Contracts & Quotas</h4>
+            <p>Flexible contract system supporting different lesson quotas (e.g., 4 lessons/month, 8 lessons/semester). System tracks planned vs. actual lessons per contract and automatically detects quota violations. Contracts can have different rates, durations, and billing periods.</p>
+          </div>
+          <div class="domain-item">
+            <h4>Billing Automation</h4>
+            <p>Transaction-safe billing system that generates invoices from taught lessons. Calculates amounts based on contract rates and unit durations. Supports planned vs. actual income tracking with monthly and yearly overviews. Invoice generation is atomic to prevent data inconsistencies.</p>
+          </div>
+          <div class="domain-item">
+            <h4>Conflict Detection</h4>
+            <p>Multi-layered conflict detection system:</p>
+            <ul>
+              <li><strong>Time Conflicts:</strong> Detects overlapping lesson times, including travel time calculations</li>
+              <li><strong>Blocked Time Conflicts:</strong> Prevents scheduling during personal blocked times (vacation, university, etc.)</li>
+              <li><strong>Quota Conflicts:</strong> Warns when planned lessons exceed contract quotas</li>
+              <li><strong>Real-time Validation:</strong> Conflicts are recalculated automatically after any schedule change</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
       <div class="code-stats">
         <h3>Code Statistics</h3>
         <div class="stats-grid">
@@ -186,9 +256,9 @@
     <div class="container">
       <h2>Links & Resources</h2>
       <div class="links-grid">
-        <a href="https://github.com/andreaseirich/tutorflow" target="_blank" class="link-card">
-          <h3>GitHub Repository</h3>
-          <p>Complete source code and documentation</p>
+        <a href="https://github.com/andreaseirich/tutorflow" target="_blank" class="link-card prominent">
+          <h3>🔗 GitHub Repository</h3>
+          <p>Complete source code, documentation, and active development</p>
           <span class="link-arrow">→</span>
         </a>
         <a href="index.html" class="link-card">

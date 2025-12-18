@@ -137,8 +137,14 @@ header p {
 
 /* Abschnitte */
 .section {
-  padding: 5rem 0;
+  padding: 4rem 0;
   position: relative;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 0;
+  }
 }
 
 .section h2 {
@@ -539,6 +545,26 @@ footer {
   .social-links {
     justify-content: center;
   }
+
+  .why-content {
+    grid-template-columns: 1fr;
+  }
+
+  .domain-content {
+    grid-template-columns: 1fr;
+  }
+
+  .security-content {
+    grid-template-columns: 1fr;
+  }
+
+  .case-section {
+    padding: 1rem;
+  }
+
+  .tech-snapshot {
+    padding: 1.5rem;
+  }
 }
 
 /* Scrollbar Styling */
@@ -906,6 +932,79 @@ footer {
   text-align: center;
 }
 
+/* Tech Snapshot */
+.tech-snapshot {
+  margin-top: 2.5rem;
+  padding: 2rem;
+  background: rgba(30, 30, 30, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tech-snapshot h3 {
+  color: #fff;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.tech-snapshot ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tech-snapshot ul li {
+  color: #b0b0b0;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  line-height: 1.7;
+}
+
+.tech-snapshot ul li:last-child {
+  border-bottom: none;
+}
+
+.tech-snapshot ul li strong {
+  color: #e0e0e0;
+  font-weight: 600;
+}
+
+/* CV Download */
+.cv-download {
+  margin-top: 2rem;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.cv-link {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(106, 17, 203, 0.3);
+  margin-bottom: 0.5rem;
+}
+
+.cv-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(106, 17, 203, 0.5);
+}
+
+.cv-note {
+  display: block;
+  color: #888;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
 /* 404 Error Page Styles */
 .error-content {
   text-align: center;
@@ -965,6 +1064,354 @@ footer {
 .error-button.secondary:hover {
   background: rgba(40, 40, 40, 0.8);
   border-color: rgba(106, 17, 203, 0.5);
+}
+
+/* Case Study Section */
+.case-study-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.case-section {
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  background: rgba(30, 30, 30, 0.4);
+  border-left: 3px solid rgba(106, 17, 203, 0.5);
+  border-radius: 8px;
+}
+
+.case-section h3 {
+  color: #6a11cb;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  text-align: left;
+}
+
+.case-section p {
+  color: #b0b0b0;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.case-section ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+.case-section ul li {
+  color: #c0c0c0;
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.7;
+}
+
+.case-section ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: #6a11cb;
+}
+
+.case-section ul li strong {
+  color: #e0e0e0;
+}
+
+/* Architecture Section */
+.architecture-section,
+.security-section {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: rgba(30, 30, 30, 0.4);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.architecture-section h3,
+.security-section h3 {
+  color: #fff;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.architecture-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.architecture-content ul li {
+  color: #b0b0b0;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  line-height: 1.7;
+}
+
+.architecture-content ul li:last-child {
+  border-bottom: none;
+}
+
+.architecture-content ul li strong {
+  color: #e0e0e0;
+}
+
+/* Security Section */
+.security-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.security-item {
+  padding: 1.5rem;
+  background: rgba(20, 20, 20, 0.6);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.security-item h4 {
+  color: #6a11cb;
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+  text-align: left;
+}
+
+.security-item p {
+  color: #b0b0b0;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Screenshots Section */
+.screenshots-section {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: rgba(30, 30, 30, 0.4);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.screenshots-section h3 {
+  color: #fff;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.screenshot-placeholder {
+  aspect-ratio: 16 / 9;
+  background: rgba(20, 20, 20, 0.6);
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.screenshot-placeholder:hover {
+  border-color: rgba(106, 17, 203, 0.5);
+  background: rgba(30, 30, 30, 0.8);
+}
+
+.screenshot-content {
+  text-align: center;
+  color: #888;
+}
+
+.screenshot-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.screenshot-content p {
+  color: #b0b0b0;
+  font-weight: 600;
+  margin: 0.5rem 0;
+}
+
+.screenshot-note {
+  font-size: 0.85rem;
+  color: #666;
+  display: block;
+}
+
+/* Why TutorFlow Section */
+.why-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.why-section {
+  padding: 2rem;
+  background: rgba(30, 30, 30, 0.4);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.why-section h3 {
+  color: #6a11cb;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  text-align: left;
+}
+
+.why-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.why-section ul li {
+  color: #b0b0b0;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  line-height: 1.8;
+}
+
+.why-section ul li:last-child {
+  border-bottom: none;
+}
+
+.why-section ul li strong {
+  color: #e0e0e0;
+}
+
+/* Status Block */
+.status-block {
+  margin-top: 2.5rem;
+  padding: 2rem;
+  background: rgba(30, 30, 30, 0.4);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.status-block h3 {
+  color: #fff;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.status-content p {
+  color: #b0b0b0;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.status-content p strong {
+  color: #e0e0e0;
+}
+
+.status-content ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+.status-content ul li {
+  color: #b0b0b0;
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.7;
+}
+
+.status-content ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: #6a11cb;
+}
+
+/* Domain Logic Section */
+.domain-logic-section {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: rgba(30, 30, 30, 0.4);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.domain-logic-section h3 {
+  color: #fff;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.domain-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.domain-item {
+  padding: 1.5rem;
+  background: rgba(20, 20, 20, 0.6);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.domain-item h4 {
+  color: #6a11cb;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.domain-item p {
+  color: #b0b0b0;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.domain-item ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+.domain-item ul li {
+  color: #b0b0b0;
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.7;
+}
+
+.domain-item ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: #6a11cb;
+}
+
+.domain-item ul li strong {
+  color: #e0e0e0;
+}
+
+/* Prominent Link Card */
+.link-card.prominent {
+  border: 2px solid rgba(106, 17, 203, 0.5);
+  background: rgba(106, 17, 203, 0.1);
+}
+
+.link-card.prominent:hover {
+  border-color: rgba(106, 17, 203, 0.8);
+  background: rgba(106, 17, 203, 0.15);
+  box-shadow: 0 8px 24px rgba(106, 17, 203, 0.4);
 }
 
 .admin-card p {

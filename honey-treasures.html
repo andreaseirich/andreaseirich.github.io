@@ -19,6 +19,7 @@
     <ul>
       <li><a href="index.html">← Back to Portfolio</a></li>
       <li><a href="#overview">Overview</a></li>
+      <li><a href="#case-study">Case Study</a></li>
       <li><a href="#features">Features</a></li>
       <li><a href="#tech">Technology</a></li>
       <li><a href="#links">Links</a></li>
@@ -32,9 +33,9 @@
         <p class="lead">Honey Treasures is a full-featured E-Commerce web system for family beekeeping businesses. The application enables customers to order honey products online and provides comprehensive management for the family business.</p>
         
         <div class="highlight-box success">
-          <h3>✅ Live & Productive</h3>
-          <p><strong>Online available:</strong> <a href="https://honey-treasures.com" target="_blank">https://honey-treasures.com</a></p>
-          <p>The system is fully functional and actively used in the family business.</p>
+          <h3>✅ Production System</h3>
+          <p><strong>Live & Active:</strong> <a href="https://honey-treasures.com" target="_blank">https://honey-treasures.com</a></p>
+          <p><strong>Not a demo project</strong> – This is a real production system actively used by a family beekeeping business for daily operations, order processing, and inventory management.</p>
         </div>
 
         <div class="info-grid">
@@ -53,6 +54,51 @@
             <p>German ✅</p>
             <p class="subtext">Hungarian 🔄 (in development)</p>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="case-study" class="section">
+    <div class="container">
+      <h2>Case Study</h2>
+      <div class="case-study-content">
+        <div class="case-section">
+          <h3>Problem</h3>
+          <p>A small family beekeeping business needed a way to sell honey products online without relying on third-party platforms. The system had to handle:</p>
+          <ul>
+            <li>Product catalog with multiple honey varieties and container sizes</li>
+            <li>Inventory management with automatic stock tracking</li>
+            <li>Order processing and customer notifications</li>
+            <li>Admin interface for non-technical users</li>
+            <li>Secure payment handling (manual processing)</li>
+          </ul>
+        </div>
+
+        <div class="case-section">
+          <h3>Solution</h3>
+          <p>Built a custom E-Commerce system with:</p>
+          <ul>
+            <li><strong>System Architecture:</strong> Django MVT architecture with custom admin system, role-based access control, and analytics dashboard</li>
+            <li><strong>Automation:</strong> Automatic inventory updates, email notifications, order status tracking, and shortage warnings</li>
+            <li><strong>User Experience:</strong> Mobile-first responsive design, intuitive shopping cart with volume discounts, and streamlined checkout process</li>
+            <li><strong>Business Logic:</strong> Flexible product management, multi-language support (German/Hungarian), and comprehensive reporting</li>
+          </ul>
+        </div>
+
+        <div class="case-section">
+          <h3>My Responsibilities</h3>
+          <ul>
+            <li><strong>Design:</strong> Complete UI/UX design with mobile optimization and accessibility considerations</li>
+            <li><strong>Backend:</strong> Django application architecture, database design, business logic implementation, and API development</li>
+            <li><strong>Deployment:</strong> Production server setup (Nginx + Gunicorn), SSL/TLS configuration, backup strategies, and monitoring</li>
+            <li><strong>Security:</strong> CSRF/XSS protection, SQL injection prevention, GDPR compliance, and secure authentication</li>
+          </ul>
+        </div>
+
+        <div class="case-section">
+          <h3>Status</h3>
+          <p><strong>Production System</strong> – Actively processing orders, managing inventory, and serving customers since deployment. Regular maintenance and feature updates based on real-world usage feedback.</p>
         </div>
       </div>
     </div>
@@ -192,6 +238,73 @@
             <li><strong>GDPR Compliance:</strong> Comprehensive privacy policy</li>
             <li><strong>Monitoring:</strong> Comprehensive logging and security tracking</li>
           </ul>
+        </div>
+      </div>
+
+      <div class="architecture-section">
+        <h3>Architecture Overview</h3>
+        <div class="architecture-content">
+          <p>The system follows Django's MVT (Model-View-Template) architecture with a custom admin layer:</p>
+          <ul>
+            <li><strong>Models:</strong> Product catalog, orders, customers, inventory with automatic stock management</li>
+            <li><strong>Views:</strong> RESTful request handling, business logic separation, transaction-safe operations</li>
+            <li><strong>Templates:</strong> Reusable components, multilingual support, mobile-optimized layouts</li>
+            <li><strong>Admin System:</strong> Custom role-based access control (5 admin roles), analytics dashboard, bulk operations</li>
+            <li><strong>Middleware:</strong> Maintenance mode, permission checks, request logging</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="security-section">
+        <h3>Security Implementation</h3>
+        <div class="security-content">
+          <div class="security-item">
+            <h4>Authentication & Authorization</h4>
+            <p>Django's built-in authentication system with custom role-based permissions. Admin users have granular access control based on their role (Super Admin, Order Admin, Product Admin, etc.).</p>
+          </div>
+          <div class="security-item">
+            <h4>CSRF Protection</h4>
+            <p>All forms protected with Django's CSRF middleware. Token validation on every POST request to prevent cross-site request forgery attacks.</p>
+          </div>
+          <div class="security-item">
+            <h4>XSS Prevention</h4>
+            <p>Automatic HTML escaping in templates, content security policy headers, and input sanitization for user-generated content.</p>
+          </div>
+          <div class="security-item">
+            <h4>SQL Injection Protection</h4>
+            <p>Django ORM provides parameterized queries by default, preventing SQL injection vulnerabilities. No raw SQL queries used.</p>
+          </div>
+          <div class="security-item">
+            <h4>Deployment Security</h4>
+            <p>HTTPS enforced via Let's Encrypt, secure headers configured (HSTS, CSP), environment-based configuration for sensitive data, and regular security updates.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="screenshots-section">
+        <h3>Screenshots</h3>
+        <div class="screenshots-grid">
+          <div class="screenshot-placeholder">
+            <div class="screenshot-content">
+              <span class="screenshot-icon">📸</span>
+              <p>Admin Dashboard</p>
+              <span class="screenshot-note">Analytics, order management, product overview</span>
+            </div>
+          </div>
+          <div class="screenshot-placeholder">
+            <div class="screenshot-content">
+              <span class="screenshot-icon">📸</span>
+              <p>Shop Frontend</p>
+              <span class="screenshot-note">Product catalog, shopping cart, mobile view</span>
+            </div>
+          </div>
+          <div class="screenshot-placeholder">
+            <div class="screenshot-content">
+              <span class="screenshot-icon">📸</span>
+              <p>Checkout Process</p>
+              <span class="screenshot-note">Order form, validation, confirmation</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
