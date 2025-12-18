@@ -194,6 +194,13 @@ header p {
   position: relative;
 }
 
+.project.project-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: pointer;
+}
+
 .project::before {
   content: '';
   position: absolute;
@@ -217,11 +224,17 @@ header p {
   transform: scaleX(1);
 }
 
+/* Alle Überschriften zentrieren */
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+}
+
 .project h3 {
   color: #fff;
   margin: 1rem 0 1.5rem 0;
   font-size: 1.5rem;
   font-weight: 600;
+  text-align: center;
 }
 
 .project p {
@@ -266,31 +279,25 @@ header p {
   box-shadow: 0 6px 20px rgba(106, 17, 203, 0.5);
 }
 
-.project-links {
-  display: flex;
-  gap: 1rem;
+.project-github-link {
   margin-top: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.project-links a {
-  display: inline-block;
-  text-decoration: none;
-  color: #fff;
-  font-weight: 600;
-  padding: 0.8rem 2rem;
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(106, 17, 203, 0.3);
-  flex: 1;
-  min-width: 150px;
   text-align: center;
 }
 
-.project-links a:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(106, 17, 203, 0.5);
+.project-github-link a {
+  display: inline-block;
+  text-decoration: none;
+  color: #6a11cb;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+.project-github-link a:hover {
+  color: #2575fc;
+  background: rgba(106, 17, 203, 0.1);
 }
 
 /* Kontakt */
@@ -449,6 +456,7 @@ footer {
   color: #fff;
   margin-bottom: 1rem;
   font-size: 1.3rem;
+  text-align: center;
 }
 
 .highlight-box p {
@@ -486,6 +494,7 @@ footer {
   color: #6a11cb;
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
+  text-align: center;
 }
 
 .info-card p {
@@ -531,6 +540,7 @@ footer {
   color: #fff;
   margin-bottom: 1rem;
   font-size: 1.3rem;
+  text-align: center;
 }
 
 .feature-card p {
@@ -586,6 +596,7 @@ footer {
   margin-top: 1rem;
   margin-bottom: 1rem;
   font-size: 1.2rem;
+  text-align: center;
 }
 
 .workflow-step p {
@@ -612,6 +623,7 @@ footer {
   color: #6a11cb;
   margin-bottom: 1rem;
   font-size: 1.3rem;
+  text-align: center;
 }
 
 .tech-category ul {
@@ -643,6 +655,7 @@ footer {
   color: #fff;
   margin-bottom: 2rem;
   font-size: 1.8rem;
+  text-align: center;
 }
 
 .stats-grid {
@@ -710,6 +723,7 @@ footer {
   color: #fff;
   margin-bottom: 0.5rem;
   font-size: 1.2rem;
+  text-align: center;
 }
 
 .link-card p {
@@ -755,6 +769,7 @@ footer {
   color: #6a11cb;
   margin-bottom: 0.5rem;
   font-size: 1.1rem;
+  text-align: center;
 }
 
 .admin-card p {
