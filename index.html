@@ -67,12 +67,18 @@
       <h2>Kontakt</h2>
       <!-- 
         HINWEIS: Um das Formular zu aktivieren, musst du:
-        1. Gehe zu https://formspree.io/ und erstelle einen kostenlosen Account
-        2. Erstelle ein neues Formular
-        3. Ersetze "YOUR_FORM_ID" in der action-URL mit deiner Formspree-Form-ID
-        4. Beispiel: action="https://formspree.io/f/xpzgkqyz"
+        
+        OPTION 1 - EmailJS (empfohlen, kostenlos):
+        1. Gehe zu https://www.emailjs.com/ und erstelle einen kostenlosen Account
+        2. Erstelle einen Email Service (Gmail, Outlook, etc.)
+        3. Erstelle eine Email Template
+        4. Ersetze "YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID" und "YOUR_PUBLIC_KEY" unten
+        
+        OPTION 2 - Formspree:
+        1. Gehe zu https://formspree.io/ und erstelle einen Account
+        2. Ersetze die action-URL mit deiner Formspree-Form-ID
       -->
-      <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <form id="contact-form">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" placeholder="Dein Name" required>
         
@@ -95,7 +101,22 @@
     </div>
   </footer>
 
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  
   <script>
+    // EmailJS Konfiguration - HIER DEINE WERTE EINTRAGEN
+    const EMAILJS_CONFIG = {
+      serviceId: 'YOUR_SERVICE_ID',      // Deine EmailJS Service ID
+      templateId: 'YOUR_TEMPLATE_ID',   // Deine EmailJS Template ID
+      publicKey: 'YOUR_PUBLIC_KEY'      // Deine EmailJS Public Key
+    };
+
+    // EmailJS initialisieren
+    (function() {
+      emailjs.init(EMAILJS_CONFIG.publicKey);
+    })();
+
     // Kontaktformular-Handler
     const form = document.getElementById('contact-form');
     const status = document.getElementById('form-status');
@@ -104,6 +125,13 @@
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       
+      // Prüfe ob EmailJS konfiguriert ist
+      if (EMAILJS_CONFIG.serviceId === 'YOUR_SERVICE_ID') {
+        status.textContent = 'Bitte konfiguriere EmailJS in index.html (Zeile ~98-102)';
+        status.className = 'form-status error';
+        return;
+      }
+      
       // Button deaktivieren und Status anzeigen
       submitBtn.disabled = true;
       submitBtn.textContent = 'Wird gesendet...';
@@ -111,31 +139,30 @@
       status.className = 'form-status';
 
       // Formulardaten sammeln
-      const formData = new FormData(form);
+      const templateParams = {
+        from_name: form.querySelector('#name').value,
+        from_email: form.querySelector('#email').value,
+        message: form.querySelector('#message').value,
+        to_email: 'eirichandreas2004@icloud.com' // Deine E-Mail-Adresse
+      };
       
       try {
-        const response = await fetch(form.action, {
-          method: 'POST',
-          body: formData,
-          headers: {
-            'Accept': 'application/json'
-          }
-        });
+        const response = await emailjs.send(
+          EMAILJS_CONFIG.serviceId,
+          EMAILJS_CONFIG.templateId,
+          templateParams
+        );
 
-        if (response.ok) {
+        if (response.status === 200) {
           status.textContent = 'Nachricht erfolgreich gesendet! Ich melde mich bald bei dir.';
           status.className = 'form-status success';
           form.reset();
         } else {
-          const data = await response.json();
-          if (data.errors) {
-            status.textContent = 'Fehler: ' + data.errors.map(error => error.message).join(', ');
-          } else {
-            status.textContent = 'Es gab einen Fehler beim Senden. Bitte versuche es später erneut.';
-          }
+          status.textContent = 'Es gab einen Fehler beim Senden. Bitte versuche es später erneut.';
           status.className = 'form-status error';
         }
       } catch (error) {
+        console.error('EmailJS Fehler:', error);
         status.textContent = 'Es gab einen Fehler beim Senden. Bitte versuche es später erneut.';
         status.className = 'form-status error';
       } finally {
