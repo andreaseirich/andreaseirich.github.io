@@ -1,136 +1,116 @@
 # Portfolio - Andreas Eirich
 
-A modern, responsive portfolio website with dark mode design that presents my projects and skills.
+A modern, responsive portfolio website with dark mode design that presents projects, technical expertise, and professional experience.
 
 ## 🎨 Features
 
-- **Dark Mode Design**: Modern, eye-friendly dark mode interface
+- **Dark Mode Design**: Modern, eye-friendly dark mode interface with gradient accents
 - **Responsive Design**: Optimized for all devices (Desktop, Tablet, Mobile)
 - **Smooth Animations**: Fluid transitions and hover effects
 - **Glassmorphism**: Modern UI elements with backdrop blur effects
-- **Gradient Design**: Appealing color gradients and visual effects
-- **Sticky Navigation**: Fixed navigation bar for easy navigation
+- **Project Showcase**: Detailed project pages with case studies, architecture overviews, and screenshots
+- **Tech Snapshot**: Overview of main technologies, architecture focus, and development principles
 - **Contact Form**: Functional contact form with direct email sending (Web3Forms)
-- **Project Showcase**: Clear presentation of projects with technology stack
+- **404 Error Page**: Custom error page with navigation
+- **Social Media Links**: GitHub and LinkedIn integration
 
 ## 🚀 Technologies
 
-- **HTML5**: Semantic structuring
-- **CSS3**: Modern styling with Flexbox, Grid, Animations and Custom Properties
-- **JavaScript**: Interactive form functionality
+- **HTML5**: Semantic structuring with clean, maintainable code
+- **CSS3**: Modern styling with Flexbox, Grid, Animations, and Custom Properties
+- **JavaScript**: Vanilla JS for interactive form functionality
 - **Web3Forms**: Email sending service (free, no registration required)
 - **Google Fonts**: Poppins font for modern typography
-- **Responsive Design**: Mobile-First approach
+- **Mobile-First**: Responsive design approach
 
 ## 📁 Project Structure
 
 ```
 portfolio/
-├── index.html          # Main HTML file
-├── style.css           # Stylesheet with dark mode design
-├── tutorflow.html      # TutorFlow project overview page
-├── honey-treasures.html # Honey Treasures project overview page
-├── 404.html            # 404 error page
-├── _config.yml         # Jekyll configuration (optional)
-└── README.md           # Project documentation
+├── index.html              # Main portfolio page
+├── style.css               # Stylesheet with dark mode design
+├── tutorflow.html          # TutorFlow project overview page
+├── honey-treasures.html    # Honey Treasures project overview page
+├── 404.html               # 404 error page
+├── _config.yml            # Jekyll configuration (optional)
+├── images/                # Project screenshots
+│   ├── honey-treasures-*.png
+│   └── tutorflow-*.png
+└── README.md              # Project documentation
 ```
+
+## 📱 Website Structure
+
+### Main Page (index.html)
+- **Header**: Hero section with name and description
+- **About Me**: Personal introduction and skills
+- **Projects**: Clickable project cards linking to detailed pages
+- **Tech Snapshot**: Overview of technologies, architecture focus, and principles
+- **Contact**: Functional contact form
+- **Footer**: Copyright and social media links
+
+### Project Pages
+Each project page includes:
+- **Overview**: Project description and status
+- **Case Study** (Honey Treasures): Problem, solution, responsibilities
+- **Why?** (TutorFlow): Problem analysis and benefits
+- **Features**: Key functionality and capabilities
+- **Technology Stack**: Detailed tech breakdown
+- **Architecture & Security**: Technical implementation details
+- **Screenshots**: Visual project showcase
+- **Links**: Repository and live site links
 
 ## 🛠️ Installation & Setup
 
-1. **Clone or download repository**
+1. **Clone repository**
    ```bash
    git clone https://github.com/andreaseirich/andreaseirich.github.io.git
    cd andreaseirich.github.io
    ```
 
 2. **Local Development**
-   - Open the `index.html` file directly in your browser, or
-   - Use a local development server:
+   - Open `index.html` directly in browser, or
+   - Use a local server:
      ```bash
-     # With Python
      python -m http.server 8000
-     
-     # With Node.js (http-server)
+     # or
      npx http-server
      ```
 
-3. **Open in browser**
-   - Navigate to `http://localhost:8000` (or the corresponding port)
+3. **View in browser**
+   - Navigate to `http://localhost:8000`
 
-## 📱 Usage
+## 🎯 Design Principles
 
-The website consists of the following main sections:
+- **Minimalist**: Clean, focused design without unnecessary elements
+- **Readability**: Optimized spacing and typography for easy reading
+- **Consistency**: Unified structure across all pages
+- **Professional**: Suitable for recruiters and technical decision-makers
 
-- **Header**: Hero section with name and description
-- **Navigation**: Sticky navigation with jump links to sections
-- **About Me**: Personal introduction and skills
-- **Projects**: Overview of developed projects with details
-- **Contact**: Functional contact form for direct communication
-- **Footer**: Copyright information and social media links
+## 📝 Projects
 
-## 🎯 Design Highlights
+### Honey Treasures
+- **Status**: Production system (live at honey-treasures.com)
+- **Type**: E-Commerce system for small apiaries
+- **Tech**: Django, Python, HTML/CSS/JavaScript
+- **Highlights**: Case study, architecture overview, security implementation
 
-### Color Palette
-- **Background**: Dark black (#0a0a0a) with subtle gradient overlays
-- **Accents**: Purple-blue gradient (#6a11cb → #2575fc)
-- **Text**: Light gray (#e0e0e0) for optimal readability
-
-### Animations
-- Fade-in animations on load
-- Smooth scroll behavior
-- Hover effects on interactive elements
-- Gradient animations in header
-
-### Responsive Breakpoints
-- Desktop: > 768px (full features)
-- Tablet: 768px (adjusted layout)
-- Mobile: < 768px (optimized for touch)
-
-## 📝 Customization
-
-### Adding Your Own Projects
-
-Edit the `index.html` file and add new project cards in the `<section id="projects">` section:
-
-```html
-<a href="project-page.html" class="project project-link">
-  <h3>Project Name</h3>
-  <p>Project description</p>
-  <ul>
-    <li>Technology 1: X%</li>
-    <li>Technology 2: Y%</li>
-  </ul>
-</a>
-```
-
-### Adjusting Colors
-
-The main colors can be adjusted in `style.css`:
-- Gradient colors: `#6a11cb` and `#2575fc`
-- Background: `#0a0a0a`
-- Text: `#e0e0e0`
-
-### Configuring Contact Form
-
-The contact form uses Web3Forms for direct email sending. The configuration is located in `index.html`:
-
-```javascript
-const WEB3FORMS_ACCESS_KEY = 'your-access-key';
-const YOUR_EMAIL = 'your-email@example.com';
-```
-
-**Note**: The form is already configured and functional. Emails are sent directly to the configured address.
+### TutorFlow
+- **Status**: Submitted to CodeCraze Hackathon
+- **Type**: Tutoring management system with AI features
+- **Tech**: Django, Python, AI/LLM integration
+- **Highlights**: Domain logic, conflict detection, workflow automation
 
 ## 🌐 Browser Support
 
-- ✅ Chrome (latest version)
-- ✅ Firefox (latest version)
-- ✅ Safari (latest version)
-- ✅ Edge (latest version)
+- ✅ Chrome (latest)
+- ✅ Firefox (latest)
+- ✅ Safari (latest)
+- ✅ Edge (latest)
 
 ## 📄 License
 
-This project is personal portfolio material. All rights reserved.
+Personal portfolio material. All rights reserved.
 
 ## 👤 Author
 
@@ -138,14 +118,8 @@ This project is personal portfolio material. All rights reserved.
 
 - GitHub: [@andreaseirich](https://github.com/andreaseirich)
 - LinkedIn: [andreas-eirich](https://www.linkedin.com/in/andreas-eirich)
-- Portfolio: [Portfolio Website](https://andreaseirich.github.io)
-
-## 🙏 Acknowledgments
-
-- [Google Fonts](https://fonts.google.com/) for the Poppins font
-- [Web3Forms](https://web3forms.com/) for the contact form service
-- Inspiration from modern dark mode designs
+- Portfolio: [andreaseirich.github.io](https://andreaseirich.github.io)
 
 ---
 
-**Note**: This portfolio is continuously updated and improved. Feedback and suggestions are welcome!
+**Note**: This portfolio is continuously updated and improved.
