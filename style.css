@@ -258,6 +258,24 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
 }
 
+.project-screenshot {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  display: block;
+}
+
+.project:hover .project-screenshot {
+  transform: scale(1.02);
+  border-color: rgba(106, 17, 203, 0.5);
+  box-shadow: 0 4px 12px rgba(106, 17, 203, 0.2);
+}
+
 .project h3 {
   color: #fff;
   margin: 1rem 0 1.5rem 0;
@@ -531,6 +549,10 @@ footer {
   .projects {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+  
+  .project-screenshot {
+    max-height: 180px;
   }
   
   form {
