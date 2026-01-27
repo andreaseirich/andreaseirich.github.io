@@ -1,11 +1,13 @@
 /**
- * 3D background only – WebGL (torus, particles), mouse-follow. No CSS3D, no modules.
+ * 3D background – WebGL (torus, particles), mouse-follow. ES module, Three.js from import map.
  */
+import * as THREE from 'three';
+
 (function () {
   'use strict';
 
   var canvas = document.getElementById('canvas-3d');
-  if (!canvas || typeof THREE === 'undefined') return;
+  if (!canvas) return;
 
   var scene = new THREE.Scene();
   var camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 5000);
