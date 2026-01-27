@@ -20,11 +20,26 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="style-3d.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Person","name":"Andreas Eirich","jobTitle":"Software Developer & Web Developer","url":"https://andreaseirich.github.io","sameAs":["https://github.com/andreaseirich","https://www.linkedin.com/in/andreas-eirich"],"description":"Software Developer & Web Developer"}
   </script>
 </head>
 <body class="room-mode">
+  <div id="room-fallback" class="room-fallback" aria-hidden="false">
+    <div class="room-fallback-inner">
+      <h1 class="room-fallback-title">Andreas Eirich</h1>
+      <p class="room-fallback-tag">Software Developer &amp; Web Developer</p>
+      <p class="room-fallback-load">Loading 3D view…</p>
+    </div>
+  </div>
   <div id="room-container"></div>
   <div class="grain" aria-hidden="true"></div>
   <div class="vignette" aria-hidden="true"></div>
@@ -40,6 +55,15 @@
 
   <script type="module" src="js/room-3d.js"></script>
   <script>
+  (function(){
+    window.addEventListener('room3d-ready', function(){ var f=document.getElementById('room-fallback'); if(f) f.classList.add('hidden'); });
+    setTimeout(function(){
+      var f=document.getElementById('room-fallback');
+      if(!f||f.classList.contains('hidden')) return;
+      var p=f.querySelector('.room-fallback-load');
+      if(p) p.textContent='3D didn\'t load. Refresh or check console.';
+    }, 6000);
+  })();
   (function(){
     var formInited = false;
     function initForm(){

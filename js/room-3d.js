@@ -3,8 +3,8 @@
  * Three.js + CSS3DRenderer, WebGL atmosphere. No drag, no scroll.
  */
 
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
-import { CSS3DRenderer } from 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/renderers/CSS3DRenderer.js';
+import * as THREE from 'three';
+import { CSS3DRenderer } from 'three/addons/renderers/CSS3DRenderer.js';
 
 const PANEL_W = 680;
 const PANEL_H = 480;
