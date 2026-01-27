@@ -1,64 +1,75 @@
-# Portfolio - Andreas Eirich
+# Portfolio – Andreas Eirich
 
-A modern, responsive portfolio website with dark mode design that presents projects, technical expertise, and professional experience.
+A modern, responsive portfolio website with 3D/interactive elements, dark mode design, and detailed project pages. Presents projects, technical expertise, and professional experience.
 
 ## 🎨 Features
 
-- **Dark Mode Design**: Modern, eye-friendly dark mode interface with gradient accents
+- **3D/2D Interactive Experience**: Three.js background (wireframe geometry, particles), mouse-reactive effects, parallax hero
+- **Dark Mode Design**: Eye-friendly dark interface with gradient accents (purple/blue)
 - **Responsive Design**: Optimized for all devices (Desktop, Tablet, Mobile)
-- **Smooth Animations**: Fluid transitions and hover effects
-- **Glassmorphism**: Modern UI elements with backdrop blur effects
-- **Project Showcase**: Detailed project pages with case studies, architecture overviews, and screenshots
-- **Tech Snapshot**: Overview of main technologies, architecture focus, and development principles
-- **Contact Form**: Functional contact form with direct email sending (Web3Forms)
+- **Smooth Animations**: Scroll reveal, 3D card tilt on hover, fluid transitions
+- **Glassmorphism**: Navbar backdrop blur, modern UI elements
+- **Project Showcase**: Detailed project pages (Honey Treasures, TutorFlow, ChatCompanion) with case studies, architecture, screenshots
+- **Tech Snapshot**: Overview of technologies, architecture focus, and principles
+- **Contact Form**: Web3Forms integration for email sending
 - **404 Error Page**: Custom error page with navigation
-- **Social Media Links**: GitHub and LinkedIn integration
+- **Social Links**: GitHub and LinkedIn
+- **Consistency**: Unified layout, fonts (Syne, DM Sans), and footer across index, project pages, and 404
 
 ## 🚀 Technologies
 
-- **HTML5**: Semantic structuring with clean, maintainable code
-- **CSS3**: Modern styling with Flexbox, Grid, Animations, and Custom Properties
-- **JavaScript**: Vanilla JS for interactive form functionality
-- **Web3Forms**: Email sending service (free, no registration required)
-- **Google Fonts**: Poppins font for modern typography
-- **Mobile-First**: Responsive design approach
+- **HTML5**: Semantic structure, maintainable markup
+- **CSS3**: Flexbox, Grid, animations, custom properties, `style.css` + `style-3d.css`
+- **JavaScript**: Vanilla JS (contact form, smooth scroll). **Three.js** for 3D background; custom `js/portfolio-3d.js`, `js/interactions.js`
+- **Web3Forms**: Contact form email delivery
+- **Google Fonts**: Syne (headings), DM Sans (body)
+- **Mobile-First**: Responsive layout
 
 ## 📁 Project Structure
 
 ```
-portfolio/
-├── index.html              # Main portfolio page
-├── style.css               # Stylesheet with dark mode design
-├── tutorflow.html          # TutorFlow project overview page
-├── honey-treasures.html    # Honey Treasures project overview page
-├── 404.html               # 404 error page
-├── _config.yml            # Jekyll configuration (optional)
-├── images/                # Project screenshots
+andreaseirich.github.io/
+├── index.html              # Main portfolio (3D hero, projects, contact)
+├── style.css               # Base styles (dark mode, components)
+├── style-3d.css            # 3D layout, hero, navbar, subpage overrides
+├── honey-treasures.html    # Honey Treasures project page
+├── tutorflow.html          # TutorFlow project page
+├── chatcompanion.html      # ChatCompanion project page
+├── 404.html                # 404 error page
+├── js/
+│   ├── portfolio-3d.js     # Three.js scene (torus, particles)
+│   └── interactions.js     # Card tilt, scroll reveal, parallax
+├── images/                 # Project screenshots
 │   ├── honey-treasures-*.png
-│   └── tutorflow-*.png
-└── README.md              # Project documentation
+│   ├── tutorflow-*.png
+│   └── chatcompanion-*.png
+├── _config.yml             # Jekyll config (optional)
+├── sitemap.xml
+├── robots.txt
+└── README.md
 ```
 
 ## 📱 Website Structure
 
 ### Main Page (index.html)
-- **Header**: Hero section with name and description
-- **About Me**: Personal introduction and skills
-- **Projects**: Clickable project cards linking to detailed pages
-- **Tech Snapshot**: Overview of technologies, architecture focus, and principles
-- **Contact**: Functional contact form
-- **Footer**: Copyright and social media links
+- **Hero**: Full-viewport section with 3D canvas, mouse-follow glow, „Entdecken“ CTA
+- **Nav**: Fixed navbar (About, Projects, Tech, Contact), backdrop on scroll
+- **About Me**: Short intro and focus areas
+- **Projects**: Cards linking to Honey Treasures, TutorFlow, ChatCompanion (3D tilt on hover)
+- **Tech Snapshot**: Technologies, architecture, principles
+- **Contact**: Web3Forms contact form
+- **Footer**: © 2026, GitHub, LinkedIn
 
-### Project Pages
-Each project page includes:
-- **Overview**: Project description and status
-- **Case Study** (Honey Treasures): Problem, solution, responsibilities
-- **Why?** (TutorFlow): Problem analysis and benefits
-- **Features**: Key functionality and capabilities
-- **Technology Stack**: Detailed tech breakdown
-- **Architecture & Security**: Technical implementation details
-- **Screenshots**: Visual project showcase
-- **Links**: Repository and live site links
+### Project Pages (honey-treasures, tutorflow, chatcompanion)
+- **Header**: Project name and tagline
+- **Nav**: „← Back to Portfolio“ + Overview / Case Study or Why? / Features / Technology / Links
+- **Content**: Overview, case study or „Why?“, features, tech stack, screenshots, links
+- **Footer**: Same as main page; `body.subpage` for consistent styling
+
+### 404
+- **Nav**: „← Back to Portfolio“
+- **Content**: Error message, links to homepage and projects
+- **Footer**: Same as main page
 
 ## 🛠️ Installation & Setup
 
@@ -68,38 +79,44 @@ Each project page includes:
    cd andreaseirich.github.io
    ```
 
-2. **Local Development**
-   - Open `index.html` directly in browser, or
-   - Use a local server:
+2. **Local development**
+   - Open `index.html` in a browser, or
+   - Run a local server:
      ```bash
      python -m http.server 8000
      # or
      npx http-server
      ```
 
-3. **View in browser**
-   - Navigate to `http://localhost:8000`
+3. **View**
+   - Go to `http://localhost:8000`
 
 ## 🎯 Design Principles
 
-- **Minimalist**: Clean, focused design without unnecessary elements
-- **Readability**: Optimized spacing and typography for easy reading
-- **Consistency**: Unified structure across all pages
-- **Professional**: Suitable for recruiters and technical decision-makers
+- **Minimalist**: Clear, focused layout
+- **Readability**: Good spacing and typography
+- **Consistency**: Same fonts, colors, nav, and footer across all pages
+- **Professional**: Suitable for recruiters and technical audiences
 
 ## 📝 Projects
 
 ### Honey Treasures
-- **Status**: Production system (live at honey-treasures.com)
-- **Type**: E-Commerce system for small apiaries
+- **Status**: Production (live at honey-treasures.com)
+- **Type**: E-Commerce for small apiaries
 - **Tech**: Django, Python, HTML/CSS/JavaScript
-- **Highlights**: Case study, architecture overview, security implementation
+- **Highlights**: Case study, architecture, security
 
 ### TutorFlow
 - **Status**: Submitted to CodeCraze Hackathon
-- **Type**: Tutoring management system with AI features
-- **Tech**: Django, Python, AI/LLM integration
+- **Type**: Tutoring management with AI features
+- **Tech**: Django, Python, AI/LLM
 - **Highlights**: Domain logic, conflict detection, workflow automation
+
+### ChatCompanion
+- **Status**: Open source (Streamlit app)
+- **Type**: Privacy-first chat analysis (manipulation, bullying, grooming)
+- **Tech**: Python, Streamlit, optional ML
+- **Highlights**: Offline-first, ethics, boundary-setting support
 
 ## 🌐 Browser Support
 
@@ -110,7 +127,7 @@ Each project page includes:
 
 ## 📄 License
 
-Personal portfolio material. All rights reserved.
+Personal portfolio. All rights reserved.
 
 ## 👤 Author
 
@@ -122,4 +139,4 @@ Personal portfolio material. All rights reserved.
 
 ---
 
-**Note**: This portfolio is continuously updated and improved.
+*This portfolio is updated regularly.*
