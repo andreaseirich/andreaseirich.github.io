@@ -1,5 +1,5 @@
 /* ============================================
-   3D Room – look around, no scroll
+   3D background + HTML overlay. Scroll, no modules.
    ============================================ */
 
 :root {
@@ -16,11 +16,12 @@
 
 * { box-sizing: border-box; }
 
+html { scroll-behavior: smooth; }
+
 html, body.room-mode {
   margin: 0;
   padding: 0;
-  overflow: hidden;
-  height: 100%;
+  min-height: 100%;
   width: 100%;
 }
 
@@ -28,58 +29,22 @@ body.room-mode {
   font-family: var(--body);
   background: var(--bg);
   color: var(--text);
+  overflow-x: hidden;
 }
 
-.room-fallback {
-  position: fixed;
-  inset: 0;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--bg);
-  pointer-events: none;
-}
-.room-fallback.hidden { display: none; }
-.room-fallback-inner { text-align: center; padding: 2rem; }
-.room-fallback-title {
-  font-family: var(--font);
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  font-weight: 800;
-  color: var(--text);
-  margin: 0 0 0.5rem;
-}
-.room-fallback-tag { font-size: 1.1rem; color: var(--muted); margin: 0 0 1.5rem; }
-.room-fallback-load { font-size: 0.9rem; color: var(--accent2); }
-
-#room-container {
+#canvas-3d {
   position: fixed;
   inset: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
-}
-
-.css3d-scene {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-.panel { cursor: default; }
-.panel a { cursor: pointer; }
-
-#room-container canvas {
+  z-index: 0;
   display: block;
-  width: 100%;
-  height: 100%;
 }
 
-/* —— Overlays —— */
 .grain {
   position: fixed;
   inset: 0;
-  z-index: 5;
+  z-index: 1;
   pointer-events: none;
   opacity: 0.035;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
@@ -89,105 +54,40 @@ body.room-mode {
 .vignette {
   position: fixed;
   inset: 0;
-  z-index: 5;
+  z-index: 1;
   pointer-events: none;
   background: radial-gradient(ellipse 75% 70% at 50% 50%, transparent 45%, rgba(0,0,0,0.4) 100%);
 }
 
-/* —— Room UI (hint + footer) —— */
-.room-ui {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-  padding: 0.75rem 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  background: linear-gradient(to top, rgba(3,3,6,0.9), transparent);
-  pointer-events: auto;
+.room-main {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  padding: 2rem 1.5rem 6rem;
 }
 
-.room-hint {
-  font-size: 0.8rem;
-  color: var(--muted);
-  margin: 0;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.room-footer {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-size: 0.85rem;
-  color: var(--muted);
-}
-
-.room-footer span { margin-right: 0.5rem; }
-
-.room-social {
-  color: var(--accent2);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-
-.room-social:hover { color: var(--text); }
-
-/* —— 3D Panels (CSS3D content) —— */
-.panel {
-  width: 100%;
-  height: 100%;
-  padding: 2rem 2.5rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  box-shadow: 0 24px 64px rgba(0,0,0,0.5);
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-.panel-label {
+.room-label {
   font-size: 0.7rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.25em;
   color: var(--accent);
-  margin: 0 0 1.25rem;
-}
-
-.panel-title {
-  font-family: var(--font);
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: var(--text);
   margin: 0 0 1rem;
-  line-height: 1.2;
 }
 
-.panel-body {
-  font-size: 1rem;
-  line-height: 1.75;
-  color: var(--muted);
-  margin: 0;
-}
-
-/* Hero panel */
-.panel-hero {
+.room-hero {
+  min-height: 70vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding: 4rem 1rem;
 }
 
-.panel-hero-title {
+.room-hero-title {
   font-family: var(--font);
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
   font-weight: 800;
   color: #fff;
   margin: 0 0 0.5rem;
@@ -195,30 +95,47 @@ body.room-mode {
   line-height: 1;
 }
 
-.panel-hero-tag {
+.room-hero-tag {
   font-size: 1.1rem;
   color: var(--muted);
-  margin: 0 0 2rem;
+  margin: 0 0 1.5rem;
 }
 
-.panel-hint {
+.room-hint-inline {
   font-size: 0.8rem;
   color: var(--muted);
   margin: 0;
-  opacity: 0.9;
 }
 
-.panel-hint strong { color: var(--accent2); }
+.room-section {
+  max-width: 640px;
+  margin: 0 auto 4rem;
+  padding: 2rem 0;
+}
 
-/* Projects */
-.panel-projects {
+.room-section-title {
+  font-family: var(--font);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 1rem;
+}
+
+.room-body {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--muted);
+  margin: 0;
+}
+
+.room-projects {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   margin-top: 1rem;
 }
 
-.panel-project {
+.room-project {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -232,27 +149,26 @@ body.room-mode {
   transition: background 0.2s, border-color 0.2s;
 }
 
-.panel-project:hover {
+.room-project:hover {
   background: rgba(124,58,237,0.15);
   border-color: rgba(124,58,237,0.4);
 }
 
-.panel-project em {
+.room-project em {
   margin-left: auto;
   color: var(--accent2);
   font-style: normal;
 }
 
-.panel-project-icon { font-size: 1.1em; }
+.room-project-icon { font-size: 1.1em; }
 
-/* Tech */
-.panel-tech {
+.room-tech {
   list-style: none;
   margin: 1rem 0 0;
   padding: 0;
 }
 
-.panel-tech li {
+.room-tech li {
   padding: 0.6rem 0;
   border-bottom: 1px solid var(--border);
   font-size: 1rem;
@@ -260,22 +176,21 @@ body.room-mode {
   line-height: 1.5;
 }
 
-.panel-tech li:last-child { border-bottom: none; }
+.room-tech li:last-child { border-bottom: none; }
 
-.panel-tech strong {
+.room-tech strong {
   color: var(--text);
   display: inline-block;
   min-width: 6.5rem;
   margin-right: 0.5rem;
 }
 
-/* Contact form */
-.panel-form {
+.room-form {
   margin-top: 1.25rem;
-  max-width: 100%;
+  max-width: 420px;
 }
 
-.panel-form label {
+.room-form label {
   display: block;
   font-size: 0.75rem;
   font-weight: 500;
@@ -285,8 +200,8 @@ body.room-mode {
   letter-spacing: 0.08em;
 }
 
-.panel-form input,
-.panel-form textarea {
+.room-form input,
+.room-form textarea {
   width: 100%;
   padding: 0.75rem 1rem;
   margin-bottom: 1rem;
@@ -298,15 +213,15 @@ body.room-mode {
   font-size: 1rem;
 }
 
-.panel-form input:focus,
-.panel-form textarea:focus {
+.room-form input:focus,
+.room-form textarea:focus {
   outline: none;
   border-color: var(--accent);
 }
 
-.panel-form textarea { min-height: 90px; resize: vertical; }
+.room-form textarea { min-height: 90px; resize: vertical; }
 
-.panel-form button {
+.room-form button {
   width: 100%;
   padding: 0.9rem 1.25rem;
   background: linear-gradient(135deg, var(--accent), var(--accent2));
@@ -322,15 +237,40 @@ body.room-mode {
   transition: opacity 0.2s;
 }
 
-.panel-form button:hover { opacity: 0.9; }
-
-.panel-form button:disabled { opacity: 0.5; cursor: not-allowed; }
+.room-form button:hover { opacity: 0.9; }
+.room-form button:disabled { opacity: 0.5; cursor: not-allowed; }
 
 .form-status { margin-top: 0.75rem; padding: 0.75rem; border-radius: 8px; font-size: 0.9rem; text-align: center; display: none; }
 .form-status.success { display: block; background: rgba(6,182,212,0.15); border: 1px solid rgba(6,182,212,0.4); color: var(--accent2); }
 .form-status.error { display: block; background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.4); color: #f87171; }
 
-/* —— Subpage overrides (keep for project pages) —— */
+.room-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  background: linear-gradient(to top, rgba(3,3,6,0.9), transparent);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.room-social {
+  color: var(--accent2);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.room-social:hover { color: var(--text); }
+
+/* Subpage overrides */
 body.subpage .navbar {
   background: rgba(3,3,6,0.85);
   backdrop-filter: blur(12px);
@@ -338,11 +278,10 @@ body.subpage .navbar {
 }
 
 .navbar:not(:has(.nav-logo)) { justify-content: center; }
-
 body.subpage .section { opacity: 1; transform: none; }
 
-/* —— Responsive —— */
 @media (max-width: 768px) {
-  .room-ui { flex-direction: column; align-items: flex-start; padding: 1rem; }
-  .room-footer { flex-wrap: wrap; }
+  .room-main { padding: 1.5rem 1rem 5rem; }
+  .room-hero { min-height: 60vh; padding: 3rem 1rem; }
+  .room-footer { padding: 1rem; gap: 1rem; }
 }

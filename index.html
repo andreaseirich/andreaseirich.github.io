@@ -4,92 +4,109 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Andreas Eirich – Portfolio | Software Developer & Web Developer</title>
-  <meta name="description" content="Portfolio von Andreas Eirich – Software Developer & Web Developer. 3D-Raum-Experience.">
+  <meta name="description" content="Portfolio von Andreas Eirich – Software Developer & Web Developer.">
   <meta name="keywords" content="Andreas Eirich, Software Developer, Web Developer, Python, Django, Portfolio">
   <meta name="author" content="Andreas Eirich">
   <meta name="robots" content="index, follow">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://andreaseirich.github.io/">
   <meta property="og:title" content="Andreas Eirich – Portfolio">
-  <meta property="og:description" content="Software Developer & Web Developer – 3D Portfolio">
+  <meta property="og:description" content="Software Developer & Web Developer – Portfolio">
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://andreaseirich.github.io/">
   <meta property="twitter:title" content="Andreas Eirich – Portfolio">
-  <meta property="twitter:description" content="Software Developer & Web Developer – 3D Portfolio">
+  <meta property="twitter:description" content="Software Developer & Web Developer – Portfolio">
   <link rel="canonical" href="https://andreaseirich.github.io/">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="style-3d.css">
-  <script type="importmap">
-  {
-    "imports": {
-      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
-    }
-  }
-  </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Person","name":"Andreas Eirich","jobTitle":"Software Developer & Web Developer","url":"https://andreaseirich.github.io","sameAs":["https://github.com/andreaseirich","https://www.linkedin.com/in/andreas-eirich"],"description":"Software Developer & Web Developer"}
   </script>
 </head>
 <body class="room-mode">
-  <div id="room-fallback" class="room-fallback" aria-hidden="false">
-    <div class="room-fallback-inner">
-      <h1 class="room-fallback-title">Andreas Eirich</h1>
-      <p class="room-fallback-tag">Software Developer &amp; Web Developer</p>
-      <p class="room-fallback-load">Loading 3D view…</p>
-    </div>
-  </div>
-  <div id="room-container"></div>
+  <canvas id="canvas-3d" aria-hidden="true"></canvas>
   <div class="grain" aria-hidden="true"></div>
   <div class="vignette" aria-hidden="true"></div>
 
-  <div class="room-ui">
-    <p class="room-hint">Move the mouse to look around · Cursor controls the view</p>
-    <div class="room-footer">
-      <span>&copy; 2026 Andreas Eirich</span>
-      <a href="https://github.com/andreaseirich" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="room-social">GitHub</a>
-      <a href="https://www.linkedin.com/in/andreas-eirich" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="room-social">LinkedIn</a>
-    </div>
-  </div>
+  <main class="room-main">
+    <section class="room-hero">
+      <p class="room-label">— Software Developer & Web Developer —</p>
+      <h1 class="room-hero-title">Andreas<br>Eirich</h1>
+      <p class="room-hero-tag">Innovative solutions for modern requirements</p>
+      <p class="room-hint-inline">Move the mouse to shift the view</p>
+    </section>
 
-  <script type="module" src="js/room-3d.js"></script>
+    <section class="room-section" id="about">
+      <p class="room-label">— About —</p>
+      <h2 class="room-section-title">Building systems that matter</h2>
+      <p class="room-body">Robotics & AI student at IU, building real-world systems with Django, Python, and Raspberry Pi. Tutor for mathematics up to Abitur level. Focus: documentation, ethics, and quality—E-Commerce, automation, privacy-first applications.</p>
+    </section>
+
+    <section class="room-section" id="projects">
+      <p class="room-label">— Projects —</p>
+      <h2 class="room-section-title">Selected work</h2>
+      <div class="room-projects">
+        <a href="honey-treasures.html" class="room-project"><span class="room-project-icon">🍯</span> Honey Treasures <em>→</em></a>
+        <a href="tutorflow.html" class="room-project"><span class="room-project-icon">▸</span> TutorFlow <em>→</em></a>
+        <a href="chatcompanion.html" class="room-project"><span class="room-project-icon">🛡</span> ChatCompanion <em>→</em></a>
+      </div>
+    </section>
+
+    <section class="room-section" id="tech">
+      <p class="room-label">— Tech —</p>
+      <h2 class="room-section-title">Stack & principles</h2>
+      <ul class="room-tech">
+        <li><strong>Tech</strong> Python, Django, JavaScript, HTML/CSS</li>
+        <li><strong>Architecture</strong> Service-layer, RESTful APIs</li>
+        <li><strong>Principles</strong> Maintainability, security-first, clean code</li>
+      </ul>
+    </section>
+
+    <section class="room-section" id="contact">
+      <p class="room-label">— Contact —</p>
+      <h2 class="room-section-title">Get in touch</h2>
+      <form id="contact-form" class="room-form">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Your email" required>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Your message" rows="3" required></textarea>
+        <div id="form-status" class="form-status"></div>
+        <button type="submit" id="submit-btn">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="room-footer">
+    <span>&copy; 2026 Andreas Eirich</span>
+    <a href="https://github.com/andreaseirich" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="room-social">GitHub</a>
+    <a href="https://www.linkedin.com/in/andreas-eirich" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="room-social">LinkedIn</a>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script src="js/room-3d.js"></script>
   <script>
   (function(){
-    window.addEventListener('room3d-ready', function(){ var f=document.getElementById('room-fallback'); if(f) f.classList.add('hidden'); });
-    setTimeout(function(){
-      var f=document.getElementById('room-fallback');
-      if(!f||f.classList.contains('hidden')) return;
-      var p=f.querySelector('.room-fallback-load');
-      if(p) p.textContent='3D didn\'t load. Refresh or check console.';
-    }, 6000);
-  })();
-  (function(){
-    var formInited = false;
-    function initForm(){
-      var form=document.getElementById('contact-form');
-      if(!form||formInited) return;
-      formInited=true;
-      var status=document.getElementById('form-status'), btn=document.getElementById('submit-btn');
-      var key='34a014f3-a4d1-430a-880d-a029d8cd97b9', to='eirichandreas2004@icloud.com';
-      form.addEventListener('submit',async function(e){
-        e.preventDefault();
-        var n=form.querySelector('#name').value.trim(), em=form.querySelector('#email').value.trim(), m=form.querySelector('#message').value.trim();
-        if(!n||!em||!m){ status.textContent='Please fill all fields.'; status.className='form-status error'; return; }
-        if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){ status.textContent='Please enter a valid email.'; status.className='form-status error'; return; }
-        btn.disabled=true; btn.textContent='Sending…'; status.textContent=''; status.className='form-status';
-        try{
-          var r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({access_key:key,subject:'Contact from '+n,from_name:n,from_email:em,message:m,to:to})});
-          var j=await r.json();
-          if(j.success){ status.textContent='Message sent. I\'ll get back soon.'; status.className='form-status success'; form.reset(); btn.style.background='linear-gradient(135deg,#2e7d32,#1b5e20)'; setTimeout(function(){ btn.style.background=''; },2000); }
-          else throw new Error(j.message||'Send failed');
-        }catch(err){ console.error(err); status.textContent='Something went wrong. Try again later.'; status.className='form-status error'; }
-        finally{ btn.disabled=false; btn.textContent='Send'; }
-      });
-    }
-    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',initForm);
-    else initForm();
-    window.addEventListener('room3d-ready',initForm);
+    var form=document.getElementById('contact-form');
+    if(!form) return;
+    var status=document.getElementById('form-status'), btn=document.getElementById('submit-btn');
+    var key='34a014f3-a4d1-430a-880d-a029d8cd97b9', to='eirichandreas2004@icloud.com';
+    form.addEventListener('submit',async function(e){
+      e.preventDefault();
+      var n=form.querySelector('#name').value.trim(), em=form.querySelector('#email').value.trim(), m=form.querySelector('#message').value.trim();
+      if(!n||!em||!m){ status.textContent='Please fill all fields.'; status.className='form-status error'; return; }
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){ status.textContent='Please enter a valid email.'; status.className='form-status error'; return; }
+      btn.disabled=true; btn.textContent='Sending…'; status.textContent=''; status.className='form-status';
+      try{
+        var r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({access_key:key,subject:'Contact from '+n,from_name:n,from_email:em,message:m,to:to})});
+        var j=await r.json();
+        if(j.success){ status.textContent='Message sent. I\'ll get back soon.'; status.className='form-status success'; form.reset(); btn.style.background='linear-gradient(135deg,#2e7d32,#1b5e20)'; setTimeout(function(){ btn.style.background=''; },2000); }
+        else throw new Error(j.message||'Send failed');
+      }catch(err){ console.error(err); status.textContent='Something went wrong. Try again later.'; status.className='form-status error'; }
+      finally{ btn.disabled=false; btn.textContent='Send'; }
+    });
   })();
   </script>
 </body>
