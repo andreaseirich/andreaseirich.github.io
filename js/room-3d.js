@@ -1,6 +1,6 @@
 /**
- * 3D room experience – look around (right-drag), no scroll.
- * Three.js + CSS3DRenderer, WebGL atmosphere. Custom yaw/pitch look.
+ * 3D room experience – mouse-follow: cursor drives view rotation.
+ * Three.js + CSS3DRenderer, WebGL atmosphere. No drag, no scroll.
  */
 
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
@@ -15,7 +15,7 @@ const PANELS = [
       <p class="panel-label">— Software Developer & Web Developer —</p>
       <h1 class="panel-hero-title">Andreas<br>Eirich</h1>
       <p class="panel-hero-tag">Innovative solutions for modern requirements</p>
-      <p class="panel-hint">Drag with <strong>right mouse</strong> or <strong>two fingers</strong> to look around · No scrolling</p>
+      <p class="panel-hint">Move the <strong>mouse</strong> to look around · Cursor controls the view</p>
     </div>` },
   { id: 'about', angle: 72, html: () => `
     <div class="panel">
@@ -154,57 +154,54 @@ function setupCSS3D(container, camera) {
   return { scene: cssScene, renderer: cssRenderer };
 }
 
-function setupLookAround(camera, container) {
-  let yaw = 0, pitch = 0;
-  let dragging = false;
-  let prevX = 0, prevY = 0;
-  const sens = 0.003;
+function setupMouseFollow(camera, container) {
   camera.rotation.order = 'YXZ';
+  const rangeYaw = 0.85 * Math.PI;
+  const rangePitch = 0.35 * Math.PI;
+  const lerp = 0.06;
 
-  container.addEventListener('mousedown', (e) => {
-    if (e.button !== 2) return;
-    e.preventDefault();
-    dragging = true;
-    prevX = e.clientX;
-    prevY = e.clientY;
-  });
+  let targetYaw = 0, targetPitch = 0;
+  let yaw = 0, pitch = 0;
+  let hasMouse = false;
+
+  function setTarget(normX, normY) {
+    hasMouse = true;
+    targetYaw = (normX - 0.5) * 2 * rangeYaw;
+    targetPitch = (normY - 0.5) * 2 * rangePitch;
+    targetPitch = Math.max(-rangePitch, Math.min(rangePitch, targetPitch));
+  }
+
   container.addEventListener('mousemove', (e) => {
-    if (!dragging) return;
-    yaw -= (e.clientX - prevX) * sens;
-    pitch -= (e.clientY - prevY) * sens;
-    pitch = Math.max(-0.45 * Math.PI, Math.min(0.45 * Math.PI, pitch));
-    prevX = e.clientX;
-    prevY = e.clientY;
-    camera.rotation.y = yaw;
-    camera.rotation.x = pitch;
+    const x = e.clientX / window.innerWidth;
+    const y = e.clientY / window.innerHeight;
+    setTarget(x, y);
   });
-  container.addEventListener('mouseup', (e) => { if (e.button === 2) dragging = false; });
-  container.addEventListener('mouseleave', () => { dragging = false; });
-  container.addEventListener('contextmenu', (e) => e.preventDefault());
+  container.addEventListener('mouseleave', () => { hasMouse = false; });
 
-  let touchIds = [];
-  container.addEventListener('touchstart', (e) => {
-    if (e.touches.length !== 2 || touchIds.length > 0) return;
-    touchIds = [e.touches[0].identifier, e.touches[1].identifier];
-    prevX = (e.touches[0].clientX + e.touches[1].clientX) * 0.5;
-    prevY = (e.touches[0].clientY + e.touches[1].clientY) * 0.5;
-    dragging = true;
-  }, { passive: true });
   container.addEventListener('touchmove', (e) => {
-    if (!dragging || e.touches.length !== 2) return;
-    const tx = (e.touches[0].clientX + e.touches[1].clientX) * 0.5;
-    const ty = (e.touches[0].clientY + e.touches[1].clientY) * 0.5;
-    yaw -= (tx - prevX) * sens;
-    pitch -= (ty - prevY) * sens;
-    pitch = Math.max(-0.45 * Math.PI, Math.min(0.45 * Math.PI, pitch));
-    prevX = tx;
-    prevY = ty;
-    camera.rotation.y = yaw;
-    camera.rotation.x = pitch;
+    if (e.touches.length < 1) return;
+    const t = e.touches[0];
+    setTarget(t.clientX / window.innerWidth, t.clientY / window.innerHeight);
+  }, { passive: true });
+  container.addEventListener('touchstart', (e) => {
+    if (e.touches.length < 1) return;
+    const t = e.touches[0];
+    setTarget(t.clientX / window.innerWidth, t.clientY / window.innerHeight);
   }, { passive: true });
   container.addEventListener('touchend', (e) => {
-    if (e.touches.length < 2) { touchIds = []; dragging = false; }
+    if (e.touches.length === 0) hasMouse = false;
   }, { passive: true });
+
+  return function update(dt) {
+    if (!hasMouse) {
+      targetYaw *= 0.96;
+      targetPitch *= 0.96;
+    }
+    yaw += (targetYaw - yaw) * lerp;
+    pitch += (targetPitch - pitch) * lerp;
+    camera.rotation.y = yaw;
+    camera.rotation.x = pitch;
+  };
 }
 
 (function init() {
@@ -212,15 +209,17 @@ function setupLookAround(camera, container) {
   if (!container) return;
 
   const { scene, camera, renderer, knot, pts, clock } = setupWebGL(container);
-  setupLookAround(camera, container);
+  const updateLook = setupMouseFollow(camera, container);
 
   const { scene: cssScene, renderer: cssRenderer } = setupCSS3D(container, camera);
 
   function loop() {
     requestAnimationFrame(loop);
     const t = clock.getElapsedTime();
+    const dt = Math.min(clock.getDelta(), 0.1);
     knot.rotation.y = t * 0.02;
     pts.rotation.y = t * 0.008;
+    updateLook(dt);
     renderer.render(scene, camera);
     cssRenderer.render(cssScene, camera);
   }
