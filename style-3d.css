@@ -30,7 +30,10 @@ body.room-mode {
   background: var(--bg);
   color: var(--text);
   overflow-x: hidden;
+  overflow-y: auto;
 }
+
+body.room-mode.pointer-locked { cursor: none; }
 
 #canvas-3d {
   position: fixed;
@@ -39,6 +42,7 @@ body.room-mode {
   height: 100%;
   z-index: 0;
   display: block;
+  pointer-events: none;
 }
 
 .grain {
@@ -64,6 +68,10 @@ body.room-mode {
   z-index: 2;
   min-height: 100vh;
   padding: 2rem 1.5rem 6rem;
+  isolation: isolate;
+  transform: translateZ(0);
+  opacity: 1;
+  visibility: visible;
 }
 
 .room-label {
@@ -269,6 +277,42 @@ body.room-mode {
 }
 
 .room-social:hover { color: var(--text); }
+
+.room-lock-wrap {
+  position: fixed;
+  bottom: 4rem;
+  right: 1.5rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.room-lock-wrap.hidden { display: none; }
+
+.room-lock-btn {
+  padding: 0.5rem 1rem;
+  background: rgba(124, 58, 237, 0.2);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.room-lock-btn:hover {
+  background: rgba(124, 58, 237, 0.35);
+  border-color: rgba(124, 58, 237, 0.6);
+}
+
+.room-lock-hint {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
 
 /* Subpage overrides */
 body.subpage .navbar {

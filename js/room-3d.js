@@ -59,6 +59,7 @@ import * as THREE from 'three';
   var targetYaw = 0, targetPitch = 0;
   var yaw = 0, pitch = 0;
   var hasMouse = false;
+  var moveSensitivity = 0.0012;
 
   function setTarget(normX, normY) {
     hasMouse = true;
@@ -67,10 +68,33 @@ import * as THREE from 'three';
     targetPitch = Math.max(-rangePitch, Math.min(rangePitch, targetPitch));
   }
 
-  window.addEventListener('mousemove', function (e) {
-    setTarget(e.clientX / window.innerWidth, e.clientY / window.innerHeight);
+  function applyMovement(dx, dy) {
+    hasMouse = true;
+    targetYaw += moveSensitivity * dx;
+    targetPitch -= moveSensitivity * dy;
+    targetPitch = Math.max(-rangePitch, Math.min(rangePitch, targetPitch));
+  }
+
+  function isLocked() {
+    return document.pointerLockElement === document.body;
+  }
+
+  function updateLockUI() {
+    var wrap = document.getElementById('room-lock-wrap');
+    if (wrap) wrap.classList.toggle('hidden', isLocked());
+    document.body.classList.toggle('pointer-locked', isLocked());
+  }
+
+  document.addEventListener('mousemove', function (e) {
+    if (isLocked()) {
+      applyMovement(e.movementX, e.movementY);
+    } else {
+      setTarget(e.clientX / window.innerWidth, e.clientY / window.innerHeight);
+    }
   });
-  window.addEventListener('mouseleave', function () { hasMouse = false; });
+  window.addEventListener('mouseleave', function () {
+    if (!isLocked()) hasMouse = false;
+  });
   window.addEventListener('touchmove', function (e) {
     if (e.touches.length < 1) return;
     var t = e.touches[0];
@@ -82,8 +106,22 @@ import * as THREE from 'three';
     setTarget(t.clientX / window.innerWidth, t.clientY / window.innerHeight);
   }, { passive: true });
   window.addEventListener('touchend', function (e) {
-    if (e.touches.length === 0) hasMouse = false;
+    if (e.touches.length === 0 && !isLocked()) hasMouse = false;
   }, { passive: true });
+
+  document.addEventListener('pointerlockchange', updateLockUI);
+
+  var lockBtn = document.getElementById('room-lock-btn');
+  var lockWrap = document.getElementById('room-lock-wrap');
+  if (typeof document.body.requestPointerLock !== 'function' && lockWrap) {
+    lockWrap.style.display = 'none';
+  } else if (lockBtn) {
+    lockBtn.addEventListener('click', function () {
+      if (isLocked()) return;
+      document.body.requestPointerLock();
+    });
+  }
+  updateLockUI();
 
   window.addEventListener('resize', function () {
     camera.aspect = window.innerWidth / window.innerHeight;
