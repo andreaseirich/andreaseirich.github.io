@@ -4,181 +4,68 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Andreas Eirich – Portfolio | Software Developer & Web Developer</title>
-  <meta name="description" content="Portfolio von Andreas Eirich – Software Developer & Web Developer. Projekte: Honey Treasures E-Commerce, TutorFlow, ChatCompanion.">
-  <meta name="keywords" content="Andreas Eirich, Software Developer, Web Developer, Python, Django, Portfolio, E-Commerce, Tutoring Management">
+  <meta name="description" content="Portfolio von Andreas Eirich – Software Developer & Web Developer. 3D-Raum-Experience.">
+  <meta name="keywords" content="Andreas Eirich, Software Developer, Web Developer, Python, Django, Portfolio">
   <meta name="author" content="Andreas Eirich">
   <meta name="robots" content="index, follow">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://andreaseirich.github.io/">
   <meta property="og:title" content="Andreas Eirich – Portfolio">
-  <meta property="og:description" content="Software Developer & Web Developer – Interaktives Portfolio">
+  <meta property="og:description" content="Software Developer & Web Developer – 3D Portfolio">
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://andreaseirich.github.io/">
   <meta property="twitter:title" content="Andreas Eirich – Portfolio">
-  <meta property="twitter:description" content="Software Developer & Web Developer – Interaktives Portfolio">
+  <meta property="twitter:description" content="Software Developer & Web Developer – 3D Portfolio">
   <link rel="canonical" href="https://andreaseirich.github.io/">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="style-3d.css">
-  <noscript>
-    <style>.scene-content.reveal{opacity:1 !important;transform:none !important}</style>
-  </noscript>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Person","name":"Andreas Eirich","jobTitle":"Software Developer & Web Developer","url":"https://andreaseirich.github.io","sameAs":["https://github.com/andreaseirich","https://www.linkedin.com/in/andreas-eirich"],"description":"Software Developer & Web Developer – Python, Django, moderne Web-Technologien"}
+  {"@context":"https://schema.org","@type":"Person","name":"Andreas Eirich","jobTitle":"Software Developer & Web Developer","url":"https://andreaseirich.github.io","sameAs":["https://github.com/andreaseirich","https://www.linkedin.com/in/andreas-eirich"],"description":"Software Developer & Web Developer"}
   </script>
 </head>
-<body>
-  <canvas id="canvas-3d" aria-hidden="true"></canvas>
+<body class="room-mode">
+  <div id="room-container"></div>
   <div class="grain" aria-hidden="true"></div>
   <div class="vignette" aria-hidden="true"></div>
 
-  <div class="reel-progress" role="navigation" aria-label="Scene progress">
-    <div class="reel-track"></div>
-    <div class="reel-dots">
-      <a href="#hero" class="reel-dot" data-scene="0" aria-current="true"><span>Intro</span></a>
-      <a href="#about" class="reel-dot" data-scene="1"><span>About</span></a>
-      <a href="#projects" class="reel-dot" data-scene="2"><span>Projects</span></a>
-      <a href="#tech" class="reel-dot" data-scene="3"><span>Tech</span></a>
-      <a href="#contact" class="reel-dot" data-scene="4"><span>Contact</span></a>
+  <div class="room-ui">
+    <p class="room-hint">Right-drag or two-finger drag to look around · Like a 3D room</p>
+    <div class="room-footer">
+      <span>&copy; 2026 Andreas Eirich</span>
+      <a href="https://github.com/andreaseirich" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="room-social">GitHub</a>
+      <a href="https://www.linkedin.com/in/andreas-eirich" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="room-social">LinkedIn</a>
     </div>
   </div>
 
-  <nav class="navbar" id="nav">
-    <a href="#hero" class="nav-logo">AE</a>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#tech">Tech</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <main class="reel">
-    <section id="hero" class="scene scene-hero" data-scene="0">
-      <div class="scene-bg"></div>
-      <div class="scene-content">
-        <p class="scene-label">— Software Developer & Web Developer —</p>
-        <h1 class="hero-title"><span class="line">Andreas</span> <span class="line">Eirich</span></h1>
-        <p class="hero-tagline">Innovative solutions for modern requirements</p>
-        <a href="#about" class="hero-cta">Enter</a>
-      </div>
-      <div class="scroll-cue">
-        <span>Scroll</span>
-        <div class="scroll-cue-line"></div>
-      </div>
-    </section>
-
-    <section id="about" class="scene" data-scene="1">
-      <div class="scene-content reveal">
-        <p class="scene-label">— About —</p>
-        <h2 class="scene-title">Building systems that matter</h2>
-        <p class="scene-lead">Robotics & AI student at IU, building real-world systems with Django, Python, and Raspberry Pi. Tutor for mathematics up to Abitur level. Focus: documentation, ethics, and quality—whether it’s E-Commerce, automation, or privacy-first applications.</p>
-      </div>
-    </section>
-
-    <section id="projects" class="scene scene-projects" data-scene="2">
-      <div class="scene-content reveal">
-        <p class="scene-label">— Projects —</p>
-        <h2 class="scene-title">Selected work</h2>
-        <div class="project-reel">
-          <a href="honey-treasures.html" class="project-frame" data-project="honey">
-            <div class="project-frame-bg" style="background-image:url(images/honey-treasures-shop.png)"></div>
-            <div class="project-frame-overlay"></div>
-            <div class="project-frame-content">
-              <span class="project-frame-label">E-Commerce</span>
-              <h3>🍯 Honey Treasures</h3>
-              <p>Production system for small apiaries. Live at honey-treasures.com</p>
-              <span class="project-frame-cta">View case study →</span>
-            </div>
-          </a>
-          <a href="tutorflow.html" class="project-frame" data-project="tutorflow">
-            <div class="project-frame-bg" style="background-image:url(images/tutorflow-dashboard.png)"></div>
-            <div class="project-frame-overlay"></div>
-            <div class="project-frame-content">
-              <span class="project-frame-label">Tutoring Management</span>
-              <h3>TutorFlow</h3>
-              <p>Django app for tutors: scheduling, contracts, AI-assisted planning.</p>
-              <span class="project-frame-cta">View case study →</span>
-            </div>
-          </a>
-          <a href="chatcompanion.html" class="project-frame" data-project="chat">
-            <div class="project-frame-bg" style="background-image:url(images/chatcompanion-main-interface.png)"></div>
-            <div class="project-frame-overlay"></div>
-            <div class="project-frame-content">
-              <span class="project-frame-label">Privacy-first</span>
-              <h3>🛡️ ChatCompanion</h3>
-              <p>Offline chat analysis: manipulation, bullying, grooming—no data upload.</p>
-              <span class="project-frame-cta">View case study →</span>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section id="tech" class="scene" data-scene="3">
-      <div class="scene-content reveal">
-        <p class="scene-label">— Tech —</p>
-        <h2 class="scene-title">Stack & principles</h2>
-        <ul class="tech-reel">
-          <li><strong>Tech</strong> Python, Django, JavaScript, HTML/CSS</li>
-          <li><strong>Architecture</strong> Service-layer, RESTful APIs, scalable web apps</li>
-          <li><strong>Principles</strong> Maintainability, security-first, clean code</li>
-          <li><strong>Focus</strong> E-Commerce, business automation, domain-specific apps</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="contact" class="scene" data-scene="4">
-      <div class="scene-content reveal">
-        <p class="scene-label">— Contact —</p>
-        <h2 class="scene-title">Get in touch</h2>
-        <form id="contact-form" class="contact-form">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your name" required>
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="Your email" required>
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Your message" rows="4" required></textarea>
-          <div id="form-status" class="form-status"></div>
-          <button type="submit" id="submit-btn">Send</button>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer class="reel-footer">
-    <p>&copy; 2026 Andreas Eirich</p>
-    <div class="social-links">
-      <a href="https://github.com/andreaseirich" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-link">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-      </a>
-      <a href="https://www.linkedin.com/in/andreas-eirich" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-link">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      </a>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
-  <script src="js/portfolio-3d.js"></script>
-  <script src="js/interactions.js"></script>
+  <script type="module" src="js/room-3d.js"></script>
   <script>
   (function(){
-    var form=document.getElementById('contact-form'),status=document.getElementById('form-status'),btn=document.getElementById('submit-btn');
-    var key='34a014f3-a4d1-430a-880d-a029d8cd97b9',to='eirichandreas2004@icloud.com';
-    form.addEventListener('submit',async function(e){
-      e.preventDefault();
-      var n=form.querySelector('#name').value.trim(),em=form.querySelector('#email').value.trim(),m=form.querySelector('#message').value.trim();
-      if(!n||!em||!m){ status.textContent='Please fill all fields.'; status.className='form-status error'; return; }
-      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){ status.textContent='Please enter a valid email.'; status.className='form-status error'; return; }
-      btn.disabled=true; btn.textContent='Sending…'; status.textContent=''; status.className='form-status';
-      try{
-        var r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({access_key:key,subject:'Contact from '+n,from_name:n,from_email:em,message:m,to:to})});
-        var j=await r.json();
-        if(j.success){ status.textContent='Message sent. I\'ll get back soon.'; status.className='form-status success'; form.reset(); btn.style.background='linear-gradient(135deg,#2e7d32,#1b5e20)'; setTimeout(function(){ btn.style.background=''; },2000); }
-        else throw new Error(j.message||'Send failed');
-      }catch(err){ console.error(err); status.textContent='Something went wrong. Try again later.'; status.className='form-status error'; }
-      finally{ btn.disabled=false; btn.textContent='Send'; }
-    });
+    var formInited = false;
+    function initForm(){
+      var form=document.getElementById('contact-form');
+      if(!form||formInited) return;
+      formInited=true;
+      var status=document.getElementById('form-status'), btn=document.getElementById('submit-btn');
+      var key='34a014f3-a4d1-430a-880d-a029d8cd97b9', to='eirichandreas2004@icloud.com';
+      form.addEventListener('submit',async function(e){
+        e.preventDefault();
+        var n=form.querySelector('#name').value.trim(), em=form.querySelector('#email').value.trim(), m=form.querySelector('#message').value.trim();
+        if(!n||!em||!m){ status.textContent='Please fill all fields.'; status.className='form-status error'; return; }
+        if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){ status.textContent='Please enter a valid email.'; status.className='form-status error'; return; }
+        btn.disabled=true; btn.textContent='Sending…'; status.textContent=''; status.className='form-status';
+        try{
+          var r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({access_key:key,subject:'Contact from '+n,from_name:n,from_email:em,message:m,to:to})});
+          var j=await r.json();
+          if(j.success){ status.textContent='Message sent. I\'ll get back soon.'; status.className='form-status success'; form.reset(); btn.style.background='linear-gradient(135deg,#2e7d32,#1b5e20)'; setTimeout(function(){ btn.style.background=''; },2000); }
+          else throw new Error(j.message||'Send failed');
+        }catch(err){ console.error(err); status.textContent='Something went wrong. Try again later.'; status.className='form-status error'; }
+        finally{ btn.disabled=false; btn.textContent='Send'; }
+      });
+    }
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',initForm);
+    else initForm();
+    window.addEventListener('room3d-ready',initForm);
   })();
   </script>
 </body>
