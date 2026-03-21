@@ -127,11 +127,13 @@ header p {
   transition: width 0.3s ease;
 }
 
-.navbar ul li a:hover {
+.navbar ul li a:hover,
+.navbar ul li a:focus-visible {
   color: #fff;
 }
 
-.navbar ul li a:hover::after {
+.navbar ul li a:hover::after,
+.navbar ul li a:focus-visible::after {
   width: 100%;
 }
 
@@ -243,13 +245,16 @@ header p {
   transition: transform 0.4s ease;
 }
 
-.project:hover {
+.project:hover,
+.project:focus-visible {
   transform: translateY(-10px);
   box-shadow: 0 16px 48px rgba(106, 17, 203, 0.3);
   border-color: rgba(106, 17, 203, 0.5);
+  outline: none;
 }
 
-.project:hover::before {
+.project:hover::before,
+.project:focus-visible::before {
   transform: scaleX(1);
 }
 
@@ -414,7 +419,8 @@ form button {
   font-family: 'Poppins', sans-serif;
 }
 
-form button:hover {
+form button:hover,
+form button:focus-visible {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(106, 17, 203, 0.5);
 }
@@ -1424,6 +1430,11 @@ footer {
   border-color: rgba(106, 17, 203, 0.8);
   background: rgba(106, 17, 203, 0.15);
   box-shadow: 0 8px 24px rgba(106, 17, 203, 0.4);
+}
+
+/* Screenshot placeholder (hidden by default, shown via JS on image error) */
+.screenshot-placeholder {
+  display: none;
 }
 
 .admin-card p {
