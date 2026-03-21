@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RADhuus Nortrup - Business Website | Andreas Eirich</title>
+  <meta name="description" content="RADhuus Nortrup - Static business website for a local bicycle shop in Lower Saxony. Built with HTML5, CSS3, and Vanilla JavaScript. Hosted on Netlify.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://andreaseirich.github.io/radhuus-nortrup.html">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>RADhuus Nortrup</h1>
+      <p>Static business website for a local bicycle shop in Lower Saxony</p>
+    </div>
+  </header>
+
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">&larr; Back to Portfolio</a></li>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#case-study">Case Study</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#tech">Technology</a></li>
+      <li><a href="#links">Links</a></li>
+    </ul>
+  </nav>
+
+  <section id="overview" class="section">
+    <div class="container">
+      <h2>Project Overview</h2>
+      <div class="project-detail">
+        <p class="lead">RADhuus Nortrup is a static information website for a local bicycle shop in Lower Saxony, Germany. The site serves as a digital business card for existing and new customers — presenting the shop's products, services, and pricing with direct contact options via phone, email, WhatsApp, and Google Maps.</p>
+
+        <div class="highlight-box success">
+          <h3>&#10003; Live Website</h3>
+          <p><strong>Preview:</strong> <a href="https://aquamarine-sherbet-b318dc.netlify.app/" target="_blank">aquamarine-sherbet-b318dc.netlify.app</a></p>
+          <p><strong>Planned Domain:</strong> radhuus-nortrup.de (DNS migration pending)</p>
+          <p><strong>Client project</strong> – Built for Christian Quiring, owner of RADhuus Nortrup bicycle shop.</p>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-card">
+            <h4>Status</h4>
+            <p>Live</p>
+            <p class="subtext">Development completed</p>
+          </div>
+          <div class="info-card">
+            <h4>Client</h4>
+            <p>Christian Quiring</p>
+            <p class="subtext">RADhuus Nortrup</p>
+          </div>
+          <div class="info-card">
+            <h4>Scope</h4>
+            <p>8 Pages + Extras</p>
+            <p class="subtext">E-Bike guide &amp; custom 404</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="case-study" class="section">
+    <div class="container">
+      <h2>Case Study</h2>
+      <div class="case-study-content">
+        <div class="case-section">
+          <h3>Problem</h3>
+          <p>A local bicycle shop in rural Lower Saxony needed an online presence to reach new customers and provide existing customers with quick access to services and pricing. The requirements were:</p>
+          <ul>
+            <li>Present the shop's product range, services, and pricing clearly</li>
+            <li>Provide multiple contact options (phone, email, WhatsApp, Google Maps)</li>
+            <li>Full GDPR compliance without cookies or external trackers</li>
+            <li>Fast loading times even on slower rural mobile connections</li>
+            <li>No CMS dependency — low maintenance, no recurring costs</li>
+          </ul>
+        </div>
+
+        <div class="case-section">
+          <h3>Solution</h3>
+          <p>Built a performant, static website with modern web technologies:</p>
+          <ul>
+            <li><strong>Static Architecture:</strong> Pure HTML/CSS/JS — no framework overhead, no CMS, no database</li>
+            <li><strong>Image Optimization:</strong> WebP with JPEG fallback via &lt;picture&gt; elements, reducing image payload from ~38 MB to ~8 MB</li>
+            <li><strong>Modern CSS:</strong> Custom Properties, clamp() for fluid typography, color-mix(), scroll-driven animations</li>
+            <li><strong>Accessibility:</strong> Semantic HTML, skip links, aria-labels, focus indicators</li>
+          </ul>
+        </div>
+
+        <div class="case-section">
+          <h3>My Responsibilities</h3>
+          <ul>
+            <li><strong>Design:</strong> Complete UI/UX design with mobile-first approach and Dark/Light Mode support</li>
+            <li><strong>Development:</strong> Full frontend implementation with semantic HTML5, modern CSS3, and Vanilla JavaScript</li>
+            <li><strong>Photography:</strong> Image optimization pipeline — WebP conversion, compression, responsive sizing</li>
+            <li><strong>SEO:</strong> Schema.org LocalBusiness structured data, Open Graph meta tags, sitemap</li>
+            <li><strong>Legal:</strong> GDPR-compliant Impressum and Datenschutzerkl&auml;rung, cookie-free architecture</li>
+            <li><strong>Deployment:</strong> Netlify hosting setup, DNS configuration planning</li>
+          </ul>
+        </div>
+
+        <div class="case-section">
+          <h3>Status</h3>
+          <p><strong>Development Completed</strong> – The website is live on Netlify. DNS migration to the final domain radhuus-nortrup.de is pending.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="section">
+    <div class="container">
+      <h2>Features</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">&#128241;</div>
+          <h3>Responsive Design</h3>
+          <p>Mobile-first layout optimized for all device sizes — from smartphones to desktop screens.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">&#127763;</div>
+          <h3>Dark / Light Mode</h3>
+          <p>Automatic theme switching via prefers-color-scheme — respects user system preferences.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">&#128247;</div>
+          <h3>Photo Gallery with Lightbox</h3>
+          <p>Category filters, keyboard navigation, touch swipe gestures, and image preloading for a smooth browsing experience.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">&#10024;</div>
+          <h3>Scroll Animations</h3>
+          <p>CSS-based scroll-reveal animations using animation-timeline: view() — no JavaScript animation libraries needed.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">&#128269;</div>
+          <h3>SEO Optimized</h3>
+          <p>Schema.org LocalBusiness structured data, Open Graph meta tags, XML sitemap for optimal search engine visibility.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">&#128274;</div>
+          <h3>GDPR Compliant</h3>
+          <p>Impressum (&sect;5 TMG), Datenschutzerkl&auml;rung (Art. 6 DSGVO), no cookies, no external trackers.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">&#9855;</div>
+          <h3>Accessibility</h3>
+          <p>Skip links, aria-labels, semantic HTML, focus indicators — built for inclusive access.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">&#9889;</div>
+          <h3>Performance</h3>
+          <p>Compressed WebP images, zero framework overhead — ~8 MB total image payload instead of ~38 MB.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tech" class="section">
+    <div class="container">
+      <h2>Technology Stack</h2>
+      <div class="tech-stack">
+        <div class="tech-category">
+          <h3>Markup</h3>
+          <ul>
+            <li><strong>HTML5:</strong> Semantic structure with Schema.org LocalBusiness microdata</li>
+            <li><strong>8 content pages</strong> + E-Bike guide + custom 404 page</li>
+          </ul>
+        </div>
+
+        <div class="tech-category">
+          <h3>Styling</h3>
+          <ul>
+            <li><strong>CSS3:</strong> Custom Properties for theming</li>
+            <li><strong>clamp():</strong> Fluid typography and spacing</li>
+            <li><strong>color-mix():</strong> Dynamic color blending</li>
+            <li><strong>prefers-color-scheme:</strong> Automatic Dark/Light Mode</li>
+            <li><strong>animation-timeline: view():</strong> CSS-only scroll animations</li>
+          </ul>
+        </div>
+
+        <div class="tech-category">
+          <h3>Interactivity</h3>
+          <ul>
+            <li><strong>Vanilla JavaScript:</strong> No frameworks — lightweight and fast</li>
+            <li><strong>Lightbox Gallery:</strong> Custom implementation with keyboard &amp; touch support</li>
+            <li><strong>Category Filters:</strong> Dynamic content filtering</li>
+          </ul>
+        </div>
+
+        <div class="tech-category">
+          <h3>Images</h3>
+          <ul>
+            <li><strong>&lt;picture&gt; element:</strong> WebP with JPEG fallback</li>
+            <li><strong>Compression:</strong> ~80% payload reduction (38 MB &rarr; 8 MB)</li>
+            <li><strong>Responsive:</strong> Appropriate sizing for each breakpoint</li>
+          </ul>
+        </div>
+
+        <div class="tech-category">
+          <h3>Hosting &amp; Deployment</h3>
+          <ul>
+            <li><strong>Netlify:</strong> Static site hosting with CDN</li>
+            <li><strong>Git / GitHub:</strong> Version control</li>
+            <li><strong>Custom Domain:</strong> radhuus-nortrup.de (DNS pending)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="architecture-section">
+        <h3>Architecture Overview</h3>
+        <div class="architecture-content">
+          <p>The website follows a simple, maintainable static architecture with no build step:</p>
+          <ul>
+            <li><strong>No CMS / No Database:</strong> Pure static files — zero server-side dependencies</li>
+            <li><strong>Progressive Enhancement:</strong> Core content accessible without JavaScript, enhanced features layered on top</li>
+            <li><strong>Image Pipeline:</strong> Source images converted to WebP with JPEG fallback via &lt;picture&gt; elements</li>
+            <li><strong>SEO Layer:</strong> Schema.org structured data, Open Graph tags, and XML sitemap for search visibility</li>
+            <li><strong>Legal Compliance:</strong> GDPR-compliant by design — no cookies, no tracking, no external requests</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="screenshots-section">
+        <h3>Screenshots</h3>
+        <div class="screenshots-grid">
+          <div class="screenshot-item">
+            <img src="images/radhuus-nortrup-startseite.png" alt="RADhuus Nortrup Homepage" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="screenshot-placeholder" style="display: none;">
+              <div class="screenshot-content">
+                <span class="screenshot-icon">&#128248;</span>
+                <p>Homepage</p>
+                <span class="screenshot-note">Hero section, services overview</span>
+              </div>
+            </div>
+            <p class="screenshot-caption">Homepage - Hero section and services overview</p>
+          </div>
+          <div class="screenshot-item">
+            <img src="images/radhuus-nortrup-galerie.png" alt="RADhuus Nortrup Photo Gallery" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="screenshot-placeholder" style="display: none;">
+              <div class="screenshot-content">
+                <span class="screenshot-icon">&#128248;</span>
+                <p>Photo Gallery</p>
+                <span class="screenshot-note">Lightbox with category filters</span>
+              </div>
+            </div>
+            <p class="screenshot-caption">Photo Gallery - Lightbox with category filters and touch navigation</p>
+          </div>
+          <div class="screenshot-item">
+            <img src="images/radhuus-nortrup-mobile.jpg" alt="RADhuus Nortrup Mobile View" class="screenshot-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="screenshot-placeholder" style="display: none;">
+              <div class="screenshot-content">
+                <span class="screenshot-icon">&#128248;</span>
+                <p>Mobile View</p>
+                <span class="screenshot-note">Responsive mobile-first layout</span>
+              </div>
+            </div>
+            <p class="screenshot-caption">Mobile View - Responsive mobile-first layout</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="links" class="section">
+    <div class="container">
+      <h2>Links &amp; Resources</h2>
+      <div class="links-grid">
+        <a href="https://aquamarine-sherbet-b318dc.netlify.app/" target="_blank" class="link-card">
+          <h3>&#127760; Live Preview</h3>
+          <p>Visit the live website on Netlify</p>
+          <span class="link-arrow">&rarr;</span>
+        </a>
+        <a href="https://github.com/andreaseirich/radhuus-nortrup" target="_blank" class="link-card">
+          <h3>&#128187; GitHub Repository</h3>
+          <p>View the source code</p>
+          <span class="link-arrow">&rarr;</span>
+        </a>
+        <a href="index.html" class="link-card">
+          <h3>Back to Portfolio</h3>
+          <p>View all projects</p>
+          <span class="link-arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <p>&copy; 2026 Andreas Eirich</p>
+        <div class="social-links">
+          <a href="https://github.com/andreaseirich" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-link">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            <span>GitHub</span>
+          </a>
+          <a href="https://www.linkedin.com/in/andreas-eirich" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-link">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,6 +1,9 @@
 # Cursor IDE
 .cursor/
 
+# Claude Code
+.claude/
+
 # Debug logs
 *.log
 debug.log
