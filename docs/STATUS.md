@@ -1,11 +1,11 @@
 # STATUS.md — andreaseirich.github.io
 
-Stand: 2026-04-17
+Stand: 2026-09-29
 
 ## Aktueller Stand
 
 Persönliches Portfolio-Website von Andreas Eirich, gehostet auf GitHub Pages.
-Zeigt Projekte: andicode, radhuus-nortrup, ChatCompanion, honey-treasures, tutorflow.
+Zeigt Projekte: andicode.de, radhuus-nortrup, ChatCompanion, honey-treasures, Preceptly.
 
 ## Technischer Stack
 
@@ -19,11 +19,11 @@ Zeigt Projekte: andicode, radhuus-nortrup, ChatCompanion, honey-treasures, tutor
 | Datei | Inhalt |
 |-------|--------|
 | `index.html` | Startseite / Projektübersicht |
-| `andicode.html` | andicode Projekt-Showcase |
+| `andicode.html` | andicode.de Projekt-Showcase |
 | `radhuus-nortrup.html` | radhuus-nortrup Projekt-Showcase |
 | `chatcompanion.html` | ChatCompanion Projekt-Showcase |
 | `honey-treasures.html` | honey-treasures Projekt-Showcase |
-| `tutorflow.html` | tutorflow Projekt-Showcase |
+| `preceptly.html` | Preceptly Projekt-Showcase (früher TutorFlow) |
 | `404.html` | Fehlerseite |
 
 ## Deployment
