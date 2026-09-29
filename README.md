@@ -29,14 +29,19 @@ A modern, responsive portfolio website with dark mode design that presents proje
 portfolio/
 ├── index.html              # Main portfolio page
 ├── style.css               # Stylesheet with dark mode design
-├── tutorflow.html          # TutorFlow project overview page
+├── preceptly.html          # Preceptly project overview page
 ├── honey-treasures.html    # Honey Treasures project overview page
-├── 404.html               # 404 error page
-├── _config.yml            # Jekyll configuration (optional)
-├── images/                # Project screenshots
+├── chatcompanion.html      # ChatCompanion project overview page
+├── radhuus-nortrup.html    # RADhuus Nortrup project overview page
+├── andicode.html           # andicode.de project overview page
+├── 404.html                # 404 error page
+├── sitemap.xml, robots.txt # SEO
+├── _config.yml             # Jekyll configuration (optional)
+├── images/                 # Project screenshots
 │   ├── honey-treasures-*.png
-│   └── tutorflow-*.png
-└── README.md              # Project documentation
+│   ├── preceptly-*.png
+│   └── …
+└── README.md               # Project documentation
 ```
 
 ## 📱 Website Structure
@@ -52,8 +57,8 @@ portfolio/
 ### Project Pages
 Each project page includes:
 - **Overview**: Project description and status
-- **Case Study** (Honey Treasures): Problem, solution, responsibilities
-- **Why?** (TutorFlow): Problem analysis and benefits
+- **Case Study** (Honey Treasures, RADhuus Nortrup, andicode.de): Problem, solution, responsibilities
+- **Why?** (Preceptly): Problem analysis and benefits
 - **Features**: Key functionality and capabilities
 - **Technology Stack**: Detailed tech breakdown
 - **Architecture & Security**: Technical implementation details
@@ -95,11 +100,29 @@ Each project page includes:
 - **Tech**: Django, Python, HTML/CSS/JavaScript
 - **Highlights**: Case study, architecture overview, security implementation
 
-### TutorFlow
-- **Status**: Submitted to CodeCraze Hackathon
-- **Type**: Tutoring management system with AI features
-- **Tech**: Django, Python, AI/LLM integration
+### Preceptly
+- **Status**: Live at [preceptly.de](https://preceptly.de); started as a CodeCraze Hackathon submission (Nov–Dec 2025)
+- **Type**: Tutoring management system with student/parent portal, video meeting rooms and AI lesson planning
+- **Tech**: Django, Python, PostgreSQL, Django Channels, Stripe, AI/LLM integration
 - **Highlights**: Domain logic, conflict detection, workflow automation
+
+### ChatCompanion
+- **Status**: Open source, built for the Code Spring hackathon
+- **Type**: Offline, privacy-first assistant that helps young people recognize risky chat patterns
+- **Tech**: Python, Streamlit, local ML models
+- **Highlights**: Rules-first detection, evidence-based explanations, no data uploads
+
+### RADhuus Nortrup
+- **Status**: Live at [radhuus-nortrup.de](https://radhuus-nortrup.de) (client project, source code private)
+- **Type**: Static business website for a bicycle shop in Lower Saxony
+- **Tech**: HTML, CSS, JavaScript
+- **Highlights**: GDPR-compliant without cookies, image payload reduced from ~38 MB to ~8 MB
+
+### andicode.de
+- **Status**: Live at [andicode.de](https://andicode.de)
+- **Type**: Freelance web development website
+- **Tech**: HTML, Tailwind CSS, JavaScript
+- **Highlights**: Dark theme, glassmorphism, scroll-reveal animations
 
 ## 🌐 Browser Support
 
