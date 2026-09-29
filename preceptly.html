@@ -58,8 +58,8 @@
         <div class="info-grid">
           <div class="info-card">
             <h4>Status</h4>
-            <p>Submitted to Hackathon</p>
-            <p class="subtext">CodeCraze Hackathon (Nov 15 – Dec 15, 2025)</p>
+            <p>Live at preceptly.de</p>
+            <p class="subtext">Started at the CodeCraze Hackathon (Nov 15 – Dec 15, 2025)</p>
           </div>
           <div class="info-card">
             <h4>Target Audience</h4>
@@ -76,14 +76,15 @@
         <div class="status-block">
           <h3>Development Status</h3>
           <div class="status-content">
-            <p><strong>Status:</strong> Submitted to CodeCraze Hackathon</p>
+            <p><strong>Status:</strong> Live at <a href="https://preceptly.de/" target="_blank">preceptly.de</a> and under active development; started as a CodeCraze Hackathon submission</p>
             <p><strong>Core Features:</strong> Implemented and functional</p>
-            <p><strong>Planned Features:</strong></p>
+            <p><strong>Added since the hackathon:</strong></p>
             <ul>
-              <li>Enhanced AI lesson planning with more customization options</li>
-              <li>Mobile app for on-the-go lesson management</li>
-              <li>Advanced reporting and analytics</li>
-              <li>Integration with calendar applications</li>
+              <li>Student and parent portal with booking, rescheduling, messages and homework</li>
+              <li>Video meeting rooms per lesson in the browser (WebRTC)</li>
+              <li>iCloud calendar sync (CalDAV)</li>
+              <li>Subscription plans (Free, Starter, Pro, Business) via Stripe</li>
+              <li>Installable web app (PWA) with push notifications</li>
             </ul>
           </div>
         </div>
@@ -126,7 +127,7 @@
             <li><strong>Time Savings:</strong> Automated invoice generation, status tracking, and conflict detection reduce administrative overhead</li>
             <li><strong>Financial Clarity:</strong> Clear overview of planned vs. actual income with monthly/yearly comparisons</li>
             <li><strong>Unified Workflow:</strong> All management tasks (scheduling, contracts, billing, planning) in one integrated system</li>
-            <li><strong>AI-Assisted Planning:</strong> Premium feature generates structured lesson plans, saving preparation time</li>
+            <li><strong>AI-Assisted Planning:</strong> Pro plan feature generates structured lesson plans, saving preparation time</li>
           </ul>
         </div>
       </div>
@@ -164,7 +165,7 @@
         <div class="feature-card">
           <div class="feature-icon">🤖</div>
           <h3>AI-Powered Lesson Plans</h3>
-          <p>Premium feature for automatic generation of structured lesson plans using LLM APIs (OpenAI-compatible) with automatic retry on rate limits.</p>
+          <p>Pro plan feature for automatic generation of structured lesson plans using LLM APIs (OpenAI-compatible) with automatic retry on rate limits.</p>
         </div>
 
         <div class="feature-card">
@@ -204,15 +205,17 @@
         <div class="tech-category">
           <h3>Backend</h3>
           <ul>
-            <li><strong>Framework:</strong> Django 6.0</li>
-            <li><strong>Database:</strong> SQLite (development), PostgreSQL (optional for production)</li>
+            <li><strong>Framework:</strong> Django 6.1</li>
+            <li><strong>Database:</strong> SQLite (development), PostgreSQL (production)</li>
             <li><strong>Python:</strong> 3.12+</li>
+            <li><strong>Real-time:</strong> Django Channels with Redis for the video meeting rooms</li>
+            <li><strong>Payments:</strong> Stripe subscriptions</li>
             <li><strong>Internationalization:</strong> Full i18n support with English as default language and German translations</li>
           </ul>
         </div>
 
         <div class="tech-category">
-          <h3>Premium Features (AI)</h3>
+          <h3>AI Features (Pro plan)</h3>
           <ul>
             <li><strong>LLM Integration:</strong> OpenAI-compatible API for AI-generated lesson plans</li>
             <li><strong>Configuration:</strong> API keys via environment variables</li>
