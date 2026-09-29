@@ -7,6 +7,15 @@ Format: `docs/conventions/micro-change-log.md`
 
 ### 2026-09-29 — Veraltete Angaben und kaputte Links korrigiert
 
+#### 08:30 — Markenname „andicode“ auch ohne „.de“ kleingeschrieben
+- **Dateien:** `andicode.html`
+- **Aktion:** Restliche Vorkommen von „AndiCode“ (Meta-Keywords, Alt-Text und Bildunterschrift des Logos) zu „andicode“ geändert, auf Wunsch von Andreas: alles klein.
+- **Ergebnis:** OK
+- **Verifikation:** `grep "AndiCode"` in allen HTML-Dateien ohne Treffer; kein `text-transform` in `style.css`, das die Schreibweise optisch ändert
+- **Nächster Schritt:** –
+- **Blocker:** –
+- **Weiter bei:** –
+
 #### 07:45 — Link auf privates Repo entfernt
 - **Dateien:** `radhuus-nortrup.html`
 - **Aktion:** Link-Karte „GitHub Repository“ entfernt; das Repo `radhuus-nortrup` ist privat, Besucher bekamen eine 404-Seite. Der Link zur Live-Website bleibt.
